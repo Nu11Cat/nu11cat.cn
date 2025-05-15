@@ -3,11 +3,12 @@ name: Deploy VuePress to GitHub Pages
 on:
   push:
     branches:
-      - main  # 你的默认分支，如果是 master 就改成 master
+      - main  # 监听 main 分支
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,12 +16,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # 或根据你的需要设置为其他版本
+          node-version: '16'  # 推荐 Node.js 16+
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build VuePress
+      - name: Build VuePress site
         run: npm run build
 
       - name: Deploy to GitHub Pages
