@@ -1,0 +1,16 @@
+import comp from "D:/study/Nu11Cat/​​JavaThinkTank​/my-docs/docs/.vuepress/.temp/pages/8.云原生与DevOps/1.Kubernetes进阶.html.vue"
+const data = JSON.parse("{\"path\":\"/8.%E4%BA%91%E5%8E%9F%E7%94%9F%E4%B8%8EDevOps/1.Kubernetes%E8%BF%9B%E9%98%B6.html\",\"title\":\"目录\",\"lang\":\"en-US\",\"frontmatter\":{},\"readingTime\":{\"minutes\":34.56,\"words\":10368},\"filePathRelative\":\"8.云原生与DevOps/1.Kubernetes进阶.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
