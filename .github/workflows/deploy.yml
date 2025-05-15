@@ -21,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Set execute permissions for vuepress
+        run: chmod +x ./node_modules/.bin/vuepress
+
       - name: Build VuePress site
-        run: npm run build
+        run: npx vuepress build docs  # 使用 npx 执行 vuepress
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
