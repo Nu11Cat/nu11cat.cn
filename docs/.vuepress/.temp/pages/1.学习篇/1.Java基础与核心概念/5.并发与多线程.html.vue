@@ -20,7 +20,7 @@
 • 公平锁与非公平锁的差异
 • 锁的中断与超时控制</li>
 <li><strong>锁优化技术</strong> • 锁的升级：从悲观锁到乐观锁
-• 锁消除与锁粗化
+• 锁消除与锁粗化.
 • <code v-pre>StampedLock</code> 与无锁编程的优化技巧</li>
 </ol>
 <h2 id="第三部分-线程池与并发工具类" tabindex="-1"><a class="header-anchor" href="#第三部分-线程池与并发工具类"><span><strong>第三部分：线程池与并发工具类</strong></span></a></h2>

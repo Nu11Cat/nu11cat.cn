@@ -1,96 +1,24 @@
-<template><div><h1 id="目录" tabindex="-1"><a class="header-anchor" href="#目录"><span>目录</span></a></h1>
-<h2 id="第一部分-集合框架基础总览" tabindex="-1"><a class="header-anchor" href="#第一部分-集合框架基础总览"><span><strong>第一部分：集合框架基础总览</strong></span></a></h2>
-<ol>
-<li><strong>集合体系结构概览</strong>
-• Collection 与 Map 的两大体系
-• Collection 下的 List、Set、Queue 简介
-• Map 接口的独立地位
-• 接口 vs 实现类的关系图解</li>
-<li><strong>核心接口与通用方法</strong>
-• add()、remove()、contains() 等基础方法
-• equals()、hashCode() 在集合中的作用
-• 泛型支持与类型安全
-• fail-fast 与 fail-safe 行为差异</li>
-<li><strong>集合框架中的遍历方式</strong>
-• Iterator / enhanced for / forEach
-• ListIterator 的前后遍历
-• lambda 与 stream 的遍历新姿势（Java 8+）</li>
-</ol>
-<hr>
-<h2 id="第二部分-list、set、map、queue-的核心实现与特性" tabindex="-1"><a class="header-anchor" href="#第二部分-list、set、map、queue-的核心实现与特性"><span><strong>第二部分：List、Set、Map、Queue 的核心实现与特性</strong></span></a></h2>
-<ol>
-<li><strong>List 接口与实现类详解</strong>
-• ArrayList：动态数组原理、扩容机制
-• LinkedList：双向链表实现、适用场景
-• Vector &amp; Stack：同步特性与历史遗留</li>
-<li><strong>Set 接口与实现类详解</strong>
-• HashSet：基于 HashMap 的实现逻辑
-• LinkedHashSet：插入顺序的维护机制
-• TreeSet：基于红黑树，天然排序或定制排序</li>
-<li><strong>Map 接口与实现类详解</strong>
-• HashMap：哈希桶、链表+红黑树的结构演变（Java 8+）
-• LinkedHashMap：访问顺序 &amp; LRU 缓存实现技巧
-• TreeMap：按键排序、NavigableMap 特性
-• Hashtable 与 ConcurrentHashMap 的区别*</li>
-<li><strong>Queue 接口与实现类详解</strong>
-• LinkedList 实现 Queue 的双重身份
-• PriorityQueue：堆结构实现优先队列
-• Deque &amp; ArrayDeque：双端队列与栈替代方案</li>
-</ol>
-<hr>
-<h2 id="第三部分-集合框架中的底层原理与性能调优-🟡-进阶" tabindex="-1"><a class="header-anchor" href="#第三部分-集合框架中的底层原理与性能调优-🟡-进阶"><span><strong>第三部分：集合框架中的底层原理与性能调优</strong> 🟡*（进阶）</span></a></h2>
-<ol>
-<li><strong>HashMap 深度剖析</strong>*
-• hash 函数、扰动函数与 index 计算
-• 负载因子、初始容量与扩容策略
-• 链表 → 红黑树的转换阈值（TREEIFY_THRESHOLD）
-• 并发修改下的坑（modCount）</li>
-<li><strong>TreeMap &amp; TreeSet 红黑树原理</strong>*
-• 节点结构与旋转机制
-• Comparable 与 Comparator 的区别
-• 子集视图（subMap/headMap）实现机制</li>
-<li><strong>Concurrent 系列集合类</strong>*
-• CopyOnWriteArrayList / CopyOnWriteArraySet
-• ConcurrentHashMap：分段锁（1.7）与 CAS+链表树化（1.8）
-• BlockingQueue 接口及其典型实现（ArrayBlockingQueue、LinkedBlockingQueue）</li>
-<li><strong>集合框架中的序列化与克隆陷阱</strong>*
-• 集合类的序列化支持与 transient 字段
-• 深拷贝实现思路（循环 or 序列化）
-• 自定义对象作为键的注意事项（equals/hashCode）</li>
-</ol>
-<hr>
-<h2 id="第四部分-集合框架与函数式编程的结合-🟡" tabindex="-1"><a class="header-anchor" href="#第四部分-集合框架与函数式编程的结合-🟡"><span><strong>第四部分：集合框架与函数式编程的结合</strong> 🟡*</span></a></h2>
-<ol>
-<li><strong>Stream API 集合操作实践</strong>*
-• map/filter/reduce 的实用场景
-• collect() 与 Collectors 的多种用法
-• Optional 与 Null 安全的结合方式</li>
-<li><strong>集合与 lambda 表达式结合技巧</strong>*
-• forEach、removeIf、replaceAll 等扩展方法
-• Comparator.comparing 多字段排序
-• Map.compute/merge/forEach 高阶用法</li>
-</ol>
-<hr>
-<h2 id="第五部分-集合框架的最佳实践与常见陷阱" tabindex="-1"><a class="header-anchor" href="#第五部分-集合框架的最佳实践与常见陷阱"><span><strong>第五部分：集合框架的最佳实践与常见陷阱</strong></span></a></h2>
-<ol>
-<li><strong>使用建议与性能优化</strong>
-• 明确容量初始化的重要性（如 HashMap 初始大小）
-• 对比 ArrayList 与 LinkedList 的实际性能
-• 使用 EnumSet/EnumMap 的专属优势</li>
-<li><strong>常见误区与 debug 技巧</strong>
-• ConcurrentModificationException 触发场景
-• == 与 equals 混用导致的数据丢失
-• List.remove() 中 int 与 Object 的歧义</li>
-<li><strong>集合类选型指南（按场景推荐）</strong>
-• 需要快速访问：ArrayList vs HashMap
-• 保持顺序：LinkedHashMap vs TreeMap
-• 多线程场景：Collections.synchronizedXXX vs Concurrent 系列</li>
-</ol>
-<hr>
-<h1 id="第一部分-集合框架基础总览-1" tabindex="-1"><a class="header-anchor" href="#第一部分-集合框架基础总览-1"><span><strong>第一部分：集合框架基础总览</strong></span></a></h1>
-<h2 id="_1-集合体系结构概览" tabindex="-1"><a class="header-anchor" href="#_1-集合体系结构概览"><span>1. <strong>集合体系结构概览</strong></span></a></h2>
+<template><div><h2 id="目录" tabindex="-1"><a class="header-anchor" href="#目录"><span>目录</span></a></h2>
+<p>1.集合框架概述与基本使用</p>
+<blockquote>
+<p>学习并理解 Java 集合框架的整体结构及其各个常见集合类。</p>
+</blockquote>
+<p>2.底层实现及原理</p>
+<blockquote>
+<p>深入研究集合框架背后的底层实现。</p>
+</blockquote>
+<p>3.线程安全与并发场景</p>
+<blockquote>
+<p>了解在多线程环境中，如何保证集合的线程安全。</p>
+</blockquote>
+<p>4.设计模式与源码设计思想</p>
+<blockquote>
+<p>探讨集合框架中的设计模式（如工厂模式、单例模式等）及其在源码中的应用。</p>
+</blockquote>
+<h2 id="_1-集合框架概述与基本使用" tabindex="-1"><a class="header-anchor" href="#_1-集合框架概述与基本使用"><span>1.集合框架概述与基本使用</span></a></h2>
+<h4 id="集合体系结构概览" tabindex="-1"><a class="header-anchor" href="#集合体系结构概览"><span>集合体系结构概览</span></a></h4>
 <p>Java 的集合框架（Collection Framework）是一个强大且统一的 API，用于存储和操作对象数据。它大致可以分为两大体系：</p>
-<h4 id="•-collection-与-map-的两大体系" tabindex="-1"><a class="header-anchor" href="#•-collection-与-map-的两大体系"><span>• Collection 与 Map 的两大体系</span></a></h4>
+<p><strong>Collection 与 Map 的两大体系</strong></p>
 <ul>
 <li><code v-pre>Collection</code> 接口是集合层次结构的根，用于表示一组对象（元素），其子接口包括：
 <ul>
@@ -106,7 +34,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="•-collection-下的-list、set、queue-简介" tabindex="-1"><a class="header-anchor" href="#•-collection-下的-list、set、queue-简介"><span>• Collection 下的 List、Set、Queue 简介</span></a></h4>
+<p><strong>Collection 下的 List、Set、Queue 简介</strong></p>
 <table>
 <thead>
 <tr>
@@ -133,12 +61,12 @@
 </tr>
 </tbody>
 </table>
-<h4 id="•-map-接口的独立地位" tabindex="-1"><a class="header-anchor" href="#•-map-接口的独立地位"><span>• Map 接口的独立地位</span></a></h4>
+<p>• Map 接口的独立地位</p>
 <ul>
 <li><code v-pre>Map</code> 不继承 <code v-pre>Collection</code>，因为其语义（键值映射）与传统集合不同。</li>
 <li>其主要操作包括：添加 (<code v-pre>put</code>)、获取 (<code v-pre>get</code>)、删除 (<code v-pre>remove</code>)、遍历等。</li>
 </ul>
-<h4 id="•-接口-vs-实现类的关系图解" tabindex="-1"><a class="header-anchor" href="#•-接口-vs-实现类的关系图解"><span>• 接口 vs 实现类的关系图解</span></a></h4>
+<p><strong>接口 vs 实现类的关系图解</strong></p>
 <div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>          Iterable</span></span>
 <span class="line"><span>              |</span></span>
 <span class="line"><span>          Collection               Map</span></span>
@@ -146,11 +74,8 @@
 <span class="line"><span>      List   Set   Queue         SortedMap</span></span>
 <span class="line"><span>       |       |      |             |</span></span>
 <span class="line"><span>  ArrayList HashSet LinkedList   TreeMap</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>接口定义行为规范，具体实现类提供实际的数据结构与性能特性。推荐使用<strong>面向接口编程</strong>（如：<code v-pre>List list = new ArrayList();</code>）。</p>
-<hr>
-<h2 id="_2-核心接口与通用方法" tabindex="-1"><a class="header-anchor" href="#_2-核心接口与通用方法"><span>2. <strong>核心接口与通用方法</strong></span></a></h2>
-<p>Java 集合框架中的所有类都遵循统一的接口规范，使得学习与使用变得更为一致和高效。</p>
-<h4 id="•-add-、remove-、contains-等基础方法" tabindex="-1"><a class="header-anchor" href="#•-add-、remove-、contains-等基础方法"><span>• add()、remove()、contains() 等基础方法</span></a></h4>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>核心接口与通用方法Java 集合框架中的所有类都遵循统一的接口规范，使得学习与使用变得更为一致和高效。</p>
+<p>• add()、remove()、contains() 等基础方法</p>
 <ul>
 <li><code v-pre>add(E e)</code>：向集合中添加元素。</li>
 <li><code v-pre>remove(Object o)</code>：移除指定对象（第一次出现）。</li>
@@ -161,7 +86,7 @@
 <blockquote>
 <p><strong>注意：</strong> 不同集合对 <code v-pre>add()</code> 的行为不同，如 <code v-pre>Set</code> 添加重复元素会失败。</p>
 </blockquote>
-<h4 id="•-equals-、hashcode-在集合中的作用" tabindex="-1"><a class="header-anchor" href="#•-equals-、hashcode-在集合中的作用"><span>• equals()、hashCode() 在集合中的作用</span></a></h4>
+<p><strong>equals()、hashCode() 在集合中的作用</strong></p>
 <ul>
 <li><code v-pre>Set</code>、<code v-pre>Map</code> 等集合依赖 <code v-pre>equals()</code> 和 <code v-pre>hashCode()</code> 判断对象是否“相等”。</li>
 <li>若自定义对象作为集合元素或 Map 的键，<strong>必须重写这两个方法</strong>以避免逻辑错误。</li>
@@ -174,7 +99,7 @@
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> int</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> hashCode</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">() {</span></span>
 <span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // 返回基于字段的 hash</span></span>
 <span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="•-泛型支持与类型安全" tabindex="-1"><a class="header-anchor" href="#•-泛型支持与类型安全"><span>• 泛型支持与类型安全</span></a></h4>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>泛型支持与类型安全</p>
 <ul>
 <li>
 <p>Java 5 引入泛型后，集合类支持类型参数：</p>
@@ -185,7 +110,7 @@
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> s </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">get</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 不再需要强制转换</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
 </ul>
-<h4 id="•-fail-fast-与-fail-safe-行为差异" tabindex="-1"><a class="header-anchor" href="#•-fail-fast-与-fail-safe-行为差异"><span>• fail-fast 与 fail-safe 行为差异</span></a></h4>
+<p><strong>fail-fast 与 fail-safe 行为差异</strong></p>
 <ul>
 <li><strong>fail-fast（快速失败）</strong>：
 <ul>
@@ -200,10 +125,9 @@
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="_3-集合框架中的遍历方式" tabindex="-1"><a class="header-anchor" href="#_3-集合框架中的遍历方式"><span>3. <strong>集合框架中的遍历方式</strong></span></a></h2>
+<h4 id="集合框架中的遍历方式" tabindex="-1"><a class="header-anchor" href="#集合框架中的遍历方式"><span>集合框架中的遍历方式</span></a></h4>
 <p>集合遍历是集合使用中最常见的操作之一，Java 提供了多种方式。</p>
-<h4 id="•-iterator-enhanced-for-foreach" tabindex="-1"><a class="header-anchor" href="#•-iterator-enhanced-for-foreach"><span>• Iterator / enhanced for / forEach</span></a></h4>
+<p><strong>Iterator / enhanced for / forEach</strong></p>
 <ul>
 <li>
 <p><code v-pre>Iterator</code> 是最通用的遍历方式：</p>
@@ -223,7 +147,7 @@
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">forEach</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(s </span><span style="--shiki-light:#C18401;--shiki-dark:#C678DD">-></span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(s));</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
 </ul>
-<h4 id="•-listiterator-的前后遍历" tabindex="-1"><a class="header-anchor" href="#•-listiterator-的前后遍历"><span>• ListIterator 的前后遍历</span></a></h4>
+<p><strong>ListIterator 的前后遍历</strong></p>
 <ul>
 <li>
 <p>仅 <code v-pre>List</code> 接口支持 <code v-pre>ListIterator</code>，可双向遍历：</p>
@@ -239,7 +163,7 @@
 <p>可通过 <code v-pre>add()</code>、<code v-pre>remove()</code> 等在遍历中安全修改集合。</p>
 </li>
 </ul>
-<h4 id="•-lambda-与-stream-的遍历新姿势-java-8" tabindex="-1"><a class="header-anchor" href="#•-lambda-与-stream-的遍历新姿势-java-8"><span>• lambda 与 stream 的遍历新姿势（Java 8+）</span></a></h4>
+<p><strong>lambda 与 stream 的遍历新姿势（Java 8+）</strong></p>
 <ul>
 <li>
 <p>Java 8 引入 Stream API，使集合操作更函数式和声明式：</p>
@@ -252,42 +176,9 @@
 <p>并行流（parallelStream）可加速处理大数据量（注意线程安全）。</p>
 </li>
 </ul>
-<hr>
-<h2 id="✅-总结回顾" tabindex="-1"><a class="header-anchor" href="#✅-总结回顾"><span>✅ 总结回顾：</span></a></h2>
-<table>
-<thead>
-<tr>
-<th>分类</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>核心结构</td>
-<td>Collection（List/Set/Queue）与 Map 两大体系</td>
-</tr>
-<tr>
-<td>通用方法</td>
-<td>增删改查 + 类型安全（泛型）+ 比较逻辑（equals/hashCode）</td>
-</tr>
-<tr>
-<td>遍历方式</td>
-<td>传统 Iterator、增强 for、lambda + Stream</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>fail-fast（常规集合） vs fail-safe（并发集合）</td>
-</tr>
-</tbody>
-</table>
-<p>这一部分是理解 Java 集合的<strong>基石</strong>，为后续深入研究底层原理、性能调优、多线程集合等内容打下坚实基础。</p>
-<hr>
-<h1 id="第二部分-list、set、map、queue-的核心实现与特性-1" tabindex="-1"><a class="header-anchor" href="#第二部分-list、set、map、queue-的核心实现与特性-1"><span><strong>第二部分：List、Set、Map、Queue 的核心实现与特性</strong></span></a></h1>
-<p>这一部分深入解析集合框架中最核心的四大接口及其主流实现类，涵盖结构特点、底层原理、使用场景与性能对比，适配初中级 <em>和资深</em>Java工程师的学习需求。</p>
-<p>源码分析：<a href="https://javaguide.cn/java/collection/arraylist-source-code.html" target="_blank" rel="noopener noreferrer">ArrayList 源码分析 | JavaGuide</a></p>
-<h2 id="_1-list-接口与实现类分析" tabindex="-1"><a class="header-anchor" href="#_1-list-接口与实现类分析"><span>1. <strong>List 接口与实现类分析</strong></span></a></h2>
+<h4 id="list-接口与实现类详解" tabindex="-1"><a class="header-anchor" href="#list-接口与实现类详解"><span>List 接口与实现类详解</span></a></h4>
 <p>List 是最常用的集合类型，特点是：<strong>有序</strong>、<strong>可重复</strong>。</p>
-<h3 id="•-arraylist-顺序数组" tabindex="-1"><a class="header-anchor" href="#•-arraylist-顺序数组"><span>• <code v-pre>ArrayList</code>（顺序数组）</span></a></h3>
+<p><strong><code v-pre>ArrayList</code>（顺序数组）</strong></p>
 <ul>
 <li><strong>底层结构</strong>：动态数组（Object[]）</li>
 <li><strong>扩容机制</strong>：初始容量为10，每次扩容为原容量的 1.5 倍</li>
@@ -314,7 +205,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="•-linkedlist-链表实现" tabindex="-1"><a class="header-anchor" href="#•-linkedlist-链表实现"><span>• <code v-pre>LinkedList</code>（链表实现）</span></a></h3>
+<p><strong><code v-pre>LinkedList</code>（链表实现）</strong></p>
 <ul>
 <li><strong>底层结构</strong>：双向链表</li>
 <li><strong>优点</strong>：
@@ -334,15 +225,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="•-vector-线程安全的-arraylist" tabindex="-1"><a class="header-anchor" href="#•-vector-线程安全的-arraylist"><span>• <code v-pre>Vector</code>（线程安全的 ArrayList）</span></a></h3>
+<p><strong><code v-pre>Vector</code>（线程安全的 ArrayList）</strong></p>
 <ul>
 <li>与 <code v-pre>ArrayList</code> 类似，但所有方法都被 <code v-pre>synchronized</code> 修饰</li>
 <li>几乎被淘汰，推荐使用 <code v-pre>Collections.synchronizedList(new ArrayList&lt;&gt;())</code></li>
 </ul>
-<hr>
-<h2 id="_2-set-接口与实现类分析" tabindex="-1"><a class="header-anchor" href="#_2-set-接口与实现类分析"><span>2. <strong>Set 接口与实现类分析</strong></span></a></h2>
+<h4 id="set-接口与实现类详解" tabindex="-1"><a class="header-anchor" href="#set-接口与实现类详解"><span>Set 接口与实现类详解</span></a></h4>
 <p>Set 体现的是<strong>数学集合语义</strong>：无序、不可重复。</p>
-<h3 id="•-hashset-最常用" tabindex="-1"><a class="header-anchor" href="#•-hashset-最常用"><span>• <code v-pre>HashSet</code>（最常用）</span></a></h3>
+<p><strong><code v-pre>HashSet</code>（最常用）</strong></p>
 <ul>
 <li><strong>底层结构</strong>：基于 <code v-pre>HashMap</code> 实现，元素作为键，值为常量 <code v-pre>PRESENT</code></li>
 <li><strong>添加逻辑</strong>：依赖 <code v-pre>hashCode()</code> 与 <code v-pre>equals()</code> 保证唯一性</li>
@@ -358,23 +248,22 @@
 </ul>
 </li>
 </ul>
-<h3 id="•-linkedhashset" tabindex="-1"><a class="header-anchor" href="#•-linkedhashset"><span>• <code v-pre>LinkedHashSet</code></span></a></h3>
+<p><strong><code v-pre>LinkedHashSet</code></strong></p>
 <ul>
 <li><strong>底层结构</strong>：继承 <code v-pre>HashSet</code> + 双向链表</li>
 <li><strong>保持元素插入顺序</strong></li>
 <li>适合需要“去重 + 有序”场景</li>
 </ul>
-<h3 id="•-treeset" tabindex="-1"><a class="header-anchor" href="#•-treeset"><span>• <code v-pre>TreeSet</code></span></a></h3>
+<p>** <code v-pre>TreeSet</code>**</p>
 <ul>
 <li><strong>底层结构</strong>：红黑树（<code v-pre>TreeMap</code> 支撑）</li>
 <li><strong>自动排序</strong>：元素需实现 <code v-pre>Comparable</code> 或使用自定义 <code v-pre>Comparator</code></li>
 <li><strong>时间复杂度</strong>：添加/删除/查询为 <code v-pre>O(log n)</code></li>
 <li>适合对数据进行自动排序、范围查询</li>
 </ul>
-<hr>
-<h2 id="_3-map-接口与实现类分析" tabindex="-1"><a class="header-anchor" href="#_3-map-接口与实现类分析"><span>3. <strong>Map 接口与实现类分析</strong></span></a></h2>
+<h4 id="map-接口与实现类详解" tabindex="-1"><a class="header-anchor" href="#map-接口与实现类详解"><span>Map 接口与实现类详解</span></a></h4>
 <p>Map 是 Java 中用于处理<strong>键值对映射</strong>的核心接口。</p>
-<h3 id="•-hashmap-最常用" tabindex="-1"><a class="header-anchor" href="#•-hashmap-最常用"><span>• <code v-pre>HashMap</code>（最常用）</span></a></h3>
+<p><strong><code v-pre>HashMap</code>（最常用）</strong></p>
 <ul>
 <li><strong>底层结构</strong>：
 <ul>
@@ -399,13 +288,13 @@
 </li>
 <li><strong>非线程安全</strong></li>
 </ul>
-<h5 id="进阶" tabindex="-1"><a class="header-anchor" href="#进阶"><span><em>进阶</em>：</span></a></h5>
+<p><strong><em>进阶</em>：</strong></p>
 <ul>
 <li><strong>键的要求</strong>：必须实现 <code v-pre>hashCode()</code> 与 <code v-pre>equals()</code></li>
 <li><strong>JDK 8 之后性能显著提升</strong>（链表转红黑树）</li>
 <li><strong>Hash 冲突多时性能可能降为 O(n)</strong>，树化避免此问题</li>
 </ul>
-<h3 id="•-linkedhashmap" tabindex="-1"><a class="header-anchor" href="#•-linkedhashmap"><span>• <code v-pre>LinkedHashMap</code></span></a></h3>
+<p><strong><code v-pre>LinkedHashMap</code></strong></p>
 <ul>
 <li><strong>底层结构</strong>：继承 <code v-pre>HashMap</code>，同时维护插入顺序的双向链表</li>
 <li><strong>保持元素插入顺序</strong>（也可以按访问顺序）</li>
@@ -415,7 +304,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="•-treemap" tabindex="-1"><a class="header-anchor" href="#•-treemap"><span>• <code v-pre>TreeMap</code></span></a></h3>
+<p><strong><code v-pre>TreeMap</code></strong></p>
 <ul>
 <li>
 <p><strong>基于红黑树</strong>，键需排序（<code v-pre>Comparable</code> 或 <code v-pre>Comparator</code>）</p>
@@ -425,33 +314,31 @@
 <div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">subMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">10</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">20</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 获取 key 在 10~20 之间的子映射</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div></li>
 </ul>
-<h3 id="•-hashtable-线程安全但已淘汰" tabindex="-1"><a class="header-anchor" href="#•-hashtable-线程安全但已淘汰"><span>• <code v-pre>Hashtable</code>（线程安全但已淘汰）</span></a></h3>
+<p><strong><code v-pre>Hashtable</code>（线程安全但已淘汰）</strong></p>
 <ul>
 <li>所有方法都加了 <code v-pre>synchronized</code>，效率低</li>
 <li>推荐使用 <code v-pre>ConcurrentHashMap</code></li>
 </ul>
-<hr>
-<h2 id="_4-queue-接口与实现类分析" tabindex="-1"><a class="header-anchor" href="#_4-queue-接口与实现类分析"><span>4. <strong>Queue 接口与实现类分析</strong></span></a></h2>
+<h4 id="queue-接口与实现类详解" tabindex="-1"><a class="header-anchor" href="#queue-接口与实现类详解"><span>Queue 接口与实现类详解</span></a></h4>
 <p>Queue 表现先进先出（FIFO）行为，广泛用于任务调度、缓存等。</p>
-<h3 id="•-linkedlist-实现-queue" tabindex="-1"><a class="header-anchor" href="#•-linkedlist-实现-queue"><span>• <code v-pre>LinkedList</code> 实现 Queue</span></a></h3>
+<p><strong><code v-pre>LinkedList</code> 实现 Queue</strong></p>
 <ul>
 <li>实现了 <code v-pre>Queue</code> 和 <code v-pre>Deque</code></li>
 <li>支持头尾插入/删除（栈/队列双模式）</li>
 </ul>
-<h3 id="•-priorityqueue" tabindex="-1"><a class="header-anchor" href="#•-priorityqueue"><span>• <code v-pre>PriorityQueue</code></span></a></h3>
+<p><strong><code v-pre>PriorityQueue</code></strong></p>
 <ul>
 <li>基于堆（最小堆），元素自动排序</li>
 <li>默认使用 <code v-pre>Comparable</code>，也可传入 <code v-pre>Comparator</code></li>
 <li>常用于任务调度、优先队列</li>
 </ul>
-<h3 id="•-arraydeque" tabindex="-1"><a class="header-anchor" href="#•-arraydeque"><span>• <code v-pre>ArrayDeque</code></span></a></h3>
+<p><strong><code v-pre>ArrayDeque</code></strong></p>
 <ul>
 <li>双端队列，高效替代 <code v-pre>Stack</code> 和 <code v-pre>LinkedList</code></li>
 <li>无容量限制，头尾操作 <code v-pre>O(1)</code></li>
 <li>比 <code v-pre>LinkedList</code> 更轻量级，无链表指针开销</li>
 </ul>
-<hr>
-<h2 id="✅-快速对比汇总-性能-特性" tabindex="-1"><a class="header-anchor" href="#✅-快速对比汇总-性能-特性"><span>✅ 快速对比汇总（性能/特性）</span></a></h2>
+<h4 id="对比汇总" tabindex="-1"><a class="header-anchor" href="#对比汇总"><span><strong>对比汇总</strong></span></a></h4>
 <table>
 <thead>
 <tr>
@@ -530,456 +417,344 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_2-底层实现及原理" tabindex="-1"><a class="header-anchor" href="#_2-底层实现及原理"><span>2.底层实现及原理</span></a></h2>
+<p>因为Java集合并没有太多理解困难的抽象知识，更多是在使用中的选择和应用，对于实现原理和源码分析已经有很多成熟的文章和视频，所以我不再重复赘述。</p>
+<p><a href="https://javaguide.cn/java/collection/java-collection-questions-01.html" target="_blank" rel="noopener noreferrer">Java集合常见面试题总结(上) | JavaGuide</a></p>
+<p><a href="https://github.com/CarpenterLee/JCFInternals" target="_blank" rel="noopener noreferrer">CarpenterLee/JCFInternals: 深入理解Java集合框架</a></p>
+<p><a href="https://github.com/google/guava" target="_blank" rel="noopener noreferrer">google/guava: Google core libraries for Java</a></p>
+<h2 id="_3-线程安全与并发场景" tabindex="-1"><a class="header-anchor" href="#_3-线程安全与并发场景"><span>3.线程安全与并发场景</span></a></h2>
+<h4 id="_1-线程不安全集合的问题" tabindex="-1"><a class="header-anchor" href="#_1-线程不安全集合的问题"><span>1.<strong>线程不安全集合的问题</strong></span></a></h4>
+<p>在多线程并发环境中，如果使用 Java 中默认的集合类（如 <code v-pre>ArrayList</code>、<code v-pre>HashMap</code>、<code v-pre>LinkedList</code> 等），很容易出现<strong>数据不一致</strong>、<strong>程序异常</strong>甚至<strong>死循环</strong>等问题。这是因为这些集合类本身<strong>没有线程安全保障</strong>，多个线程同时读写时会引发竞态条件。</p>
+<p>示例一：ArrayList 的并发问题</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>java复制编辑List&#x3C;Integer> list = new ArrayList&#x3C;>();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Runnable task = () -> {</span></span>
+<span class="line"><span>    for (int i = 0; i &#x3C; 1000; i++) {</span></span>
+<span class="line"><span>        list.add(i);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Thread t1 = new Thread(task);</span></span>
+<span class="line"><span>Thread t2 = new Thread(task);</span></span>
+<span class="line"><span>t1.start();</span></span>
+<span class="line"><span>t2.start();</span></span>
+<span class="line"><span>t1.join();</span></span>
+<span class="line"><span>t2.join();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>System.out.println("Size: " + list.size());</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>预期结果</strong>：2000
+<strong>实际可能结果</strong>：小于 2000，甚至抛出 <code v-pre>ConcurrentModificationException</code> 或 <code v-pre>ArrayIndexOutOfBoundsException</code>。</p>
+<p><strong>原因</strong>：多个线程同时调用 <code v-pre>add()</code>，在扩容或修改内部数组时发生冲突，导致数据错乱或覆盖。</p>
 <hr>
-<h1 id="第三部分-集合类的性能分析与使用策略" tabindex="-1"><a class="header-anchor" href="#第三部分-集合类的性能分析与使用策略"><span><strong>第三部分：集合类的性能分析与使用策略</strong></span></a></h1>
-<p>这一部分将详细探讨不同集合实现的性能特点、内存管理策略，以及如何选择合适的集合类来应对不同的应用场景，帮助开发人员在实际工作中做出更优的选择。</p>
-<h2 id="_1-集合性能对比与选择依据" tabindex="-1"><a class="header-anchor" href="#_1-集合性能对比与选择依据"><span>1. <strong>集合性能对比与选择依据</strong></span></a></h2>
-<p>不同的集合类在时间复杂度、空间复杂度等方面存在差异，选择合适的集合类可以大幅提升程序的性能。以下是一些常见集合实现的性能对比：</p>
-<h3 id="•-arraylist-vs-linkedlist-性能对比" tabindex="-1"><a class="header-anchor" href="#•-arraylist-vs-linkedlist-性能对比"><span>• <code v-pre>ArrayList</code> vs <code v-pre>LinkedList</code> 性能对比</span></a></h3>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th><code v-pre>ArrayList</code></th>
-<th><code v-pre>LinkedList</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>随机访问（<code v-pre>get()</code>）</td>
-<td>O(1)</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>插入/删除（尾部）</td>
-<td>O(1)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>插入/删除（中间）</td>
-<td>O(n)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>内存占用</td>
-<td>较低（连续数组）</td>
-<td>较高（每个节点需要存储指针）</td>
-</tr>
-</tbody>
-</table>
+<p>示例二：HashMap 的并发死循环（JDK 1.7）</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>java复制编辑Map&#x3C;Integer, Integer> map = new HashMap&#x3C;>();</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Runnable task = () -> {</span></span>
+<span class="line"><span>    for (int i = 0; i &#x3C; 10000; i++) {</span></span>
+<span class="line"><span>        map.put(i, i);</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>};</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Thread t1 = new Thread(task);</span></span>
+<span class="line"><span>Thread t2 = new Thread(task);</span></span>
+<span class="line"><span>t1.start();</span></span>
+<span class="line"><span>t2.start();</span></span>
+<span class="line"><span>t1.join();</span></span>
+<span class="line"><span>t2.join();</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在 JDK 1.7 中，如果在多线程环境下频繁 <code v-pre>put</code>，可能会触发 <strong>rehash</strong> 时链表形成循环，导致 CPU 100% 卡死在遍历中（虽然 JDK 1.8 改进为红黑树后几率降低，但仍不安全）。</p>
+<p>因此，在并发环境中使用这些集合类需要格外小心，不能直接使用，应使用线程安全版本或并发集合类替代。</p>
+<h4 id="_2-线程安全的集合类" tabindex="-1"><a class="header-anchor" href="#_2-线程安全的集合类"><span>2.线程安全的集合类</span></a></h4>
+<p>在多线程环境中，普通集合类（如 <code v-pre>ArrayList</code>、<code v-pre>HashMap</code>）由于缺乏内部同步机制，无法保障并发操作下的数据一致性，容易引发线程安全问题。为了解决这一问题，Java 提供了多种线程安全的集合实现方案，分别适用于不同的使用场景。</p>
+<p><strong>1. 使用 Collections.synchronizedXXX 包装</strong></p>
+<p>Java 的 <code v-pre>Collections</code> 工具类提供了若干静态方法，可以将原本非线程安全的集合包装成线程安全的版本，例如：</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span>java复制编辑List&#x3C;String> syncList = Collections.synchronizedList(new ArrayList&#x3C;>());</span></span>
+<span class="line"><span>Map&#x3C;String, String> syncMap = Collections.synchronizedMap(new HashMap&#x3C;>());</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>这些包装方法的底层实现通过 <code v-pre>synchronized</code> 关键字为集合的每个操作加锁，从而保证线程安全。但需要注意：</p>
 <ul>
-<li><strong>ArrayList</strong> 适用于频繁访问和较少插入/删除的场景，尤其在需要大量随机访问时更高效。</li>
-<li><strong>LinkedList</strong> 更适用于频繁插入/删除操作的场景，尤其是头部或中间插入时。</li>
+<li>对集合的迭代仍需手动同步；</li>
+<li>在高并发环境下性能较差，因为锁粒度粗，每次访问都串行化处理。</li>
 </ul>
-<h3 id="•-hashmap-vs-treemap-性能对比" tabindex="-1"><a class="header-anchor" href="#•-hashmap-vs-treemap-性能对比"><span>• <code v-pre>HashMap</code> vs <code v-pre>TreeMap</code> 性能对比</span></a></h3>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th><code v-pre>HashMap</code></th>
-<th><code v-pre>TreeMap</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>插入</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>查找</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>排序</td>
-<td>无</td>
-<td>有序</td>
-</tr>
-</tbody>
-</table>
+<p>这种方式简单直接，适合轻量级的并发需求场景，但并不推荐用于复杂或高频操作的系统中。</p>
+<p><strong>2. Concurrent 包下的高性能集合类</strong></p>
+<p>为了提供更优的并发性能，Java 5 引入了 <code v-pre>java.util.concurrent</code> 包，内置了多种基于分段锁或无锁机制的线程安全集合，它们在企业开发中广泛应用：</p>
 <ul>
-<li><strong>HashMap</strong> 适用于快速插入/查找，而 <strong>TreeMap</strong> 适用于需要排序或范围查找的场景。</li>
+<li><strong><code v-pre>ConcurrentHashMap</code></strong>
+是 <code v-pre>HashMap</code> 的线程安全替代品，JDK 7 使用分段锁（Segment），JDK 8 开始改为使用 CAS + synchronized 实现，具有更高的并发性能。适合高读写并发场景。</li>
+<li><strong><code v-pre>CopyOnWriteArrayList</code></strong>
+基于写时复制（Copy-On-Write）机制，每次修改（如添加、删除）时都会复制整个底层数组，写操作代价高，但读操作无需加锁，非常适合读多写少的场景。</li>
+<li><strong><code v-pre>ConcurrentLinkedQueue</code></strong>
+是一个基于非阻塞算法的无界线程安全队列，采用 CAS 操作保证并发安全，适用于高吞吐量的消息队列模型中。</li>
+<li><strong><code v-pre>ConcurrentSkipListMap</code> / <code v-pre>ConcurrentSkipListSet</code></strong>
+基于跳表结构的线程安全有序集合，支持并发访问的同时保持元素有序，适用于需要排序或范围查询的场景。</li>
 </ul>
-<h3 id="•-hashset-vs-treeset-性能对比" tabindex="-1"><a class="header-anchor" href="#•-hashset-vs-treeset-性能对比"><span>• <code v-pre>HashSet</code> vs <code v-pre>TreeSet</code> 性能对比</span></a></h3>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th><code v-pre>HashSet</code></th>
-<th><code v-pre>TreeSet</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>插入</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>查找</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>O(1)</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>排序</td>
-<td>无</td>
-<td>有序</td>
-</tr>
-</tbody>
-</table>
+<p>这些集合的设计核心是降低锁粒度，避免全局锁，通过细粒度锁或乐观并发控制机制（如 CAS）来提升并发能力。</p>
+<p><strong>3. 并发集合的使用建议</strong></p>
 <ul>
-<li><strong>HashSet</strong> 适合无需排序且性能要求高的场景，而 <strong>TreeSet</strong> 适用于需要自动排序的场景。</li>
+<li>读多写少：优先考虑 <code v-pre>CopyOnWriteArrayList</code>。</li>
+<li>高并发读写：使用 <code v-pre>ConcurrentHashMap</code>。</li>
+<li>高性能队列：采用 <code v-pre>ConcurrentLinkedQueue</code>。</li>
+<li>有序并发集合：考虑 <code v-pre>ConcurrentSkipListMap</code> 或 <code v-pre>ConcurrentSkipListSet</code>。</li>
 </ul>
-<h3 id="•-priorityqueue-性能对比" tabindex="-1"><a class="header-anchor" href="#•-priorityqueue-性能对比"><span>• <code v-pre>PriorityQueue</code> 性能对比</span></a></h3>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th><code v-pre>PriorityQueue</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>插入</td>
-<td>O(log n)</td>
-</tr>
-<tr>
-<td>查找最大/最小元素</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>删除最大/最小元素</td>
-<td>O(log n)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>适用于任务调度、优先级队列等需要按优先级排序的场景。</li>
-</ul>
+<h4 id="_3-concurrent-包下的并发集合原理" tabindex="-1"><a class="header-anchor" href="#_3-concurrent-包下的并发集合原理"><span>3.Concurrent 包下的并发集合原理</span></a></h4>
+<p>为了提升集合在并发场景下的性能和可扩展性，Java 的 <code v-pre>java.util.concurrent</code> 包引入了多种并发集合，其设计核心在于<strong>降低锁粒度</strong>、<strong>分离读写操作</strong>和<strong>使用无锁算法</strong>，相比传统的同步集合性能更优。</p>
+<p>以下是几种常见并发集合的底层原理简介：</p>
 <hr>
-<h2 id="_2-内存管理与垃圾回收机制" tabindex="-1"><a class="header-anchor" href="#_2-内存管理与垃圾回收机制"><span>2. <strong>内存管理与垃圾回收机制</strong></span></a></h2>
-<p>集合类的内存管理涉及到对象的创建、内存的分配与回收。理解 Java 中的垃圾回收机制（GC）可以帮助我们优化集合类的内存使用，避免内存泄漏和不必要的性能开销。</p>
-<h3 id="•-集合类的内存分配" tabindex="-1"><a class="header-anchor" href="#•-集合类的内存分配"><span>• 集合类的内存分配</span></a></h3>
+<p><strong>1. ConcurrentHashMap</strong></p>
+<p><code v-pre>ConcurrentHashMap</code> 是最常用的线程安全 <code v-pre>Map</code> 实现：</p>
 <ul>
-<li><strong>ArrayList/HashMap</strong>：这些类通常会在初始化时分配一定的内存空间，但当数据量达到一定阈值时会自动扩容。例如，<code v-pre>ArrayList</code> 在元素数量超过当前容量时会将底层数组扩大为原来的一定倍数（通常是 1.5 倍）。这种扩容机制虽然方便，但也可能导致频繁的内存复制操作。</li>
-<li><strong>LinkedList</strong>：由于每个元素都包含指向前后节点的指针，因此其内存开销较大。每个节点不仅包含数据，还包含两个指针，分别指向前后元素。</li>
+<li><strong>JDK 7：使用分段锁（Segment）</strong>
+<ul>
+<li>将整个 HashMap 拆分成多个 Segment，每个 Segment 维护一个独立的哈希表。</li>
+<li>不同 Segment 之间互不干扰，提升并发访问性能。</li>
+<li>缺点是默认只支持 16 个 Segment，扩展性有限。</li>
 </ul>
-<h3 id="•-垃圾回收机制" tabindex="-1"><a class="header-anchor" href="#•-垃圾回收机制"><span>• 垃圾回收机制</span></a></h3>
-<p>Java 的垃圾回收器会自动回收不再使用的对象，但集合类中可能存在一些特定的内存泄漏场景，尤其是在使用集合类时存储了对外部对象的引用时。以下是一些需要注意的内存管理问题：</p>
+</li>
+<li><strong>JDK 8：使用 CAS + synchronized</strong>
 <ul>
-<li><strong>弱引用与软引用</strong>：如果集合类中包含对某些对象的弱引用或软引用，这些对象在 GC 时可能会被提前回收，避免内存泄漏。</li>
-<li><strong>循环引用</strong>：尽管 Java 的 GC 可以处理大部分循环引用的情况，但依赖于集合中的对象进行相互引用时，仍然可能导致内存泄漏，特别是当某些对象持有强引用，而其他对象持有弱引用时。</li>
+<li>取消了 Segment，使用<strong>数组 + 链表/红黑树</strong>的结构。</li>
+<li>写操作使用 <code v-pre>synchronized</code> 锁定单个桶，读操作通过 <code v-pre>volatile</code> 保证可见性，避免加锁。</li>
+<li>扩容时也采用分布式迁移，减少阻塞。</li>
 </ul>
-<h3 id="•-内存泄漏与集合类" tabindex="-1"><a class="header-anchor" href="#•-内存泄漏与集合类"><span>• 内存泄漏与集合类</span></a></h3>
+</li>
+</ul>
+<p><strong>优点：</strong> 高性能、高可扩展性、适合读写并发场景。
+<strong>注意：</strong> 并不支持 null 键或 null 值。</p>
+<hr>
+<p><strong>2. CopyOnWriteArrayList</strong></p>
+<p>适合读多写少的场景，其核心思想是<strong>写时复制</strong>：</p>
 <ul>
-<li><strong>避免内存泄漏</strong>：
+<li>每次修改操作（如 <code v-pre>add()</code>、<code v-pre>remove()</code>）都会复制一份新数组。</li>
+<li>读操作无需加锁，因为读的是旧数组副本，天然线程安全。</li>
+<li>写操作通过 <code v-pre>ReentrantLock</code> 保证串行化。</li>
+</ul>
+<p><strong>优点：</strong> 读操作无锁，读性能极高。
+<strong>缺点：</strong> 写操作开销大，不适合频繁修改的场景。</p>
+<hr>
+<p><strong>3. ConcurrentLinkedQueue</strong></p>
+<p>是一个基于 <strong>非阻塞链表</strong> 的并发队列，实现了 <strong>无锁队列算法</strong>：</p>
 <ul>
-<li>避免在集合中使用过多的 <strong>强引用</strong>。</li>
-<li>当某个对象不再需要时，显式地 <strong>移除集合中的元素</strong>，例如，使用 <code v-pre>Map.remove()</code> 或 <code v-pre>Set.remove()</code> 等方法。</li>
-<li>定期检查和清理集合中的不再使用的元素。</li>
+<li>使用 <strong>CAS（Compare-And-Swap）</strong> 操作保证原子性，避免传统加锁开销。</li>
+<li>基于 Michael-Scott 非阻塞队列算法实现，入队和出队操作互不干扰。</li>
+</ul>
+<p><strong>优点：</strong> 高吞吐，适合生产者-消费者模型、任务调度等场景。
+<strong>缺点：</strong> 在极高并发下可能存在 ABA 问题（JDK 已优化）。</p>
+<hr>
+<p><strong>4. ConcurrentSkipListMap / Set</strong></p>
+<p>使用跳表（Skip List）实现的有序并发集合：</p>
+<ul>
+<li>支持并发访问的同时保持元素的<strong>自然顺序或指定顺序</strong>。</li>
+<li>跳表是一种多层级链表，平均查找、插入、删除复杂度为 O(log n)。</li>
+<li>内部采用 CAS 保证节点插入删除的原子性，同时使用 <code v-pre>ReentrantLock</code> 做局部加锁。</li>
+</ul>
+<p><strong>优点：</strong> 支持范围查询、有序遍历，是线程安全的 TreeMap 替代品。</p>
+<p>Java 并发集合的底层实现都体现了对传统加锁方式的优化，通过合理的算法设计和内存模型控制，使得集合在多线程环境下既安全又高效。掌握它们的原理，对于设计线程安全的数据结构和排查并发 Bug 都非常重要。</p>
+<h4 id="_4-使用建议与场景" tabindex="-1"><a class="header-anchor" href="#_4-使用建议与场景"><span>4.使用建议与场景</span></a></h4>
+<p>在多线程环境下，选择正确的集合类至关重要。使用不当会导致数据竞争、性能瓶颈甚至严重的线程安全问题。以下是一些实用建议和典型场景，帮助开发者做出合理选择。</p>
+<hr>
+<p><strong>1. 明确读写比重</strong></p>
+<ul>
+<li><strong>读多写少：</strong>
+<ul>
+<li>使用 <code v-pre>CopyOnWriteArrayList</code> 或 <code v-pre>CopyOnWriteArraySet</code>。</li>
+<li>避免加锁带来的读阻塞，适合缓存、配置列表等。</li>
+</ul>
+</li>
+<li><strong>读写并发：</strong>
+<ul>
+<li>使用 <code v-pre>ConcurrentHashMap</code>、<code v-pre>ConcurrentSkipListMap</code> 等。</li>
+<li>它们对读写进行了优化，适合共享数据频繁变动的业务逻辑。</li>
+</ul>
+</li>
+<li><strong>写密集场景：</strong>
+<ul>
+<li>避免使用写时复制类（如 CopyOnWrite 系列）。</li>
+<li>可以使用 <code v-pre>ConcurrentLinkedQueue</code>、<code v-pre>BlockingQueue</code> 等支持高并发写入的结构。</li>
 </ul>
 </li>
 </ul>
 <hr>
-<h2 id="_3-集合类的性能优化策略" tabindex="-1"><a class="header-anchor" href="#_3-集合类的性能优化策略"><span>3. <strong>集合类的性能优化策略</strong></span></a></h2>
-<p>选择合适的集合类和优化数据结构的使用，可以显著提升程序的性能，尤其是在数据量大的情况下。以下是一些性能优化的常见策略：</p>
-<h3 id="•-预分配内存-避免扩容" tabindex="-1"><a class="header-anchor" href="#•-预分配内存-避免扩容"><span>• 预分配内存（避免扩容）</span></a></h3>
-<p>对于 <code v-pre>ArrayList</code> 或 <code v-pre>HashMap</code> 等动态扩容的集合类，可以通过提前设置初始容量来避免在添加大量元素时进行多次扩容。</p>
+<p><strong>2. 是否需要顺序保证</strong></p>
 <ul>
-<li><strong>ArrayList</strong>：
+<li>若需要 <strong>有序遍历</strong> 或 <strong>范围查询</strong>，推荐使用：
 <ul>
-<li>使用 <code v-pre>new ArrayList&lt;&gt;(initialCapacity)</code> 来指定初始容量，避免在元素过多时发生扩容。</li>
+<li><code v-pre>ConcurrentSkipListMap</code>（有序 Map）</li>
+<li><code v-pre>ConcurrentSkipListSet</code>（有序 Set）</li>
 </ul>
 </li>
-<li><strong>HashMap</strong>：
+<li>若对顺序不敏感：
 <ul>
-<li>使用 <code v-pre>new HashMap&lt;&gt;(initialCapacity, loadFactor)</code> 来指定初始容量和负载因子，避免过早的扩容。</li>
+<li><code v-pre>ConcurrentHashMap</code> 更加高效，占用更少内存。</li>
 </ul>
 </li>
 </ul>
-<h3 id="•-并发集合类" tabindex="-1"><a class="header-anchor" href="#•-并发集合类"><span>• 并发集合类</span></a></h3>
-<p>在多线程环境下，可以使用线程安全的集合类来避免并发问题：</p>
+<hr>
+<p><strong>3. 是否涉及阻塞行为</strong></p>
 <ul>
-<li><strong><code v-pre>ConcurrentHashMap</code></strong>：可以高效地处理并发读写操作，并且将锁的粒度从全表锁减小到桶级锁，提高并发性能。</li>
-<li><strong><code v-pre>CopyOnWriteArrayList</code></strong>：适用于读多写少的场景，每次写入时都创建一个新的数组，保证读取时不需要加锁。</li>
-</ul>
-<h3 id="•-使用合适的数据结构" tabindex="-1"><a class="header-anchor" href="#•-使用合适的数据结构"><span>• 使用合适的数据结构</span></a></h3>
-<p>对于一些特定场景，可以选择更加高效的集合类和数据结构：</p>
+<li>若集合用于生产者-消费者模型，考虑使用：
 <ul>
-<li><strong>优先队列（PriorityQueue）</strong>：用于任务调度等场景，避免使用普通的队列实现。</li>
-<li><strong>双端队列（ArrayDeque/LinkedList）</strong>：在需要栈/队列功能时，使用双端队列（<code v-pre>Deque</code>）会比使用 <code v-pre>Stack</code> 和 <code v-pre>LinkedList</code> 更高效。</li>
+<li><code v-pre>LinkedBlockingQueue</code></li>
+<li><code v-pre>ArrayBlockingQueue</code></li>
+<li><code v-pre>DelayQueue</code>、<code v-pre>PriorityBlockingQueue</code> 等</li>
 </ul>
-<h3 id="•-合理利用-streams-java-8" tabindex="-1"><a class="header-anchor" href="#•-合理利用-streams-java-8"><span>• 合理利用 Streams（Java 8+）</span></a></h3>
-<p>Java 8 引入了 <strong>Stream API</strong>，通过流式处理数据，可以大大简化代码并提高集合操作的效率。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> list </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">asList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"apple"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"banana"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cherry"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">stream</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">filter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(s </span><span style="--shiki-light:#C18401;--shiki-dark:#C678DD">-></span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> s</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">startsWith</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"a"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(String</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">::</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">toUpperCase)</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">forEach</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">::</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">println);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>使用 <strong><code v-pre>parallelStream()</code></strong> 可以启用并行流处理，在处理大量数据时可以提高性能。</li>
+</li>
+<li>这些阻塞队列内置 <code v-pre>take()</code> 和 <code v-pre>put()</code> 方法，可以自然地控制线程等待和唤醒，避免手动加锁。</li>
 </ul>
 <hr>
-<h2 id="_4-常见的集合使用场景与最佳实践" tabindex="-1"><a class="header-anchor" href="#_4-常见的集合使用场景与最佳实践"><span>4. <strong>常见的集合使用场景与最佳实践</strong></span></a></h2>
-<h3 id="•-用于存储无重复数据-hashset-treeset" tabindex="-1"><a class="header-anchor" href="#•-用于存储无重复数据-hashset-treeset"><span>• 用于存储无重复数据：<code v-pre>HashSet</code> / <code v-pre>TreeSet</code></span></a></h3>
-<p>适用于要求数据唯一的场景，例如去重、过滤等。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Set</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> uniqueNumbers </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> HashSet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">uniqueNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">uniqueNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">uniqueNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="•-用于存储有序数据-treeset-treemap" tabindex="-1"><a class="header-anchor" href="#•-用于存储有序数据-treeset-treemap"><span>• 用于存储有序数据：<code v-pre>TreeSet</code> / <code v-pre>TreeMap</code></span></a></h3>
-<p>适用于需要自动排序或范围查询的场景，例如任务调度、统计分析等。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">TreeSet</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> sortedNumbers </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> TreeSet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">sortedNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">sortedNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">sortedNumbers</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="•-用于频繁查找-hashmap-hashset" tabindex="-1"><a class="header-anchor" href="#•-用于频繁查找-hashmap-hashset"><span>• 用于频繁查找：<code v-pre>HashMap</code> / <code v-pre>HashSet</code></span></a></h3>
-<p>适用于频繁查找和插入的场景，例如缓存、映射关系管理等。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Map</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> map </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> HashMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">put</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"key1"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">10</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">put</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"key2"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">20</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="•-用于存储按顺序处理的任务-priorityqueue" tabindex="-1"><a class="header-anchor" href="#•-用于存储按顺序处理的任务-priorityqueue"><span>• 用于存储按顺序处理的任务：<code v-pre>PriorityQueue</code></span></a></h3>
-<p>适用于任务调度等优先级控制场景。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">PriorityQueue</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Task</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> taskQueue </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> PriorityQueue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">taskQueue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Task</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Low Priority"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">));</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">taskQueue</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> Task</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">5</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"High Priority"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">));</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
-<h1 id="第四部分-集合类的高级特性与实践技巧" tabindex="-1"><a class="header-anchor" href="#第四部分-集合类的高级特性与实践技巧"><span><strong>第四部分：集合类的高级特性与实践技巧</strong></span></a></h1>
-<p>这一部分将覆盖集合类中更为高级的特性，包括流式处理、集合的线程安全性、定制化集合以及一些优化技巧，帮助开发者在实际工作中更加灵活地使用 Java 集合类。</p>
-<h2 id="_1-集合类的线程安全性与并发操作" tabindex="-1"><a class="header-anchor" href="#_1-集合类的线程安全性与并发操作"><span>1. <strong>集合类的线程安全性与并发操作</strong></span></a></h2>
-<p>在并发编程中，使用线程安全的集合类非常重要，尤其是当多个线程需要同时访问和修改集合时。</p>
-<h3 id="•-线程安全的集合类" tabindex="-1"><a class="header-anchor" href="#•-线程安全的集合类"><span>• <strong>线程安全的集合类</strong></span></a></h3>
-<p>Java 提供了多种线程安全的集合类，以下是一些常见的选择：</p>
+<p><strong>4. 不要误用线程不安全集合</strong></p>
+<p>在并发场景中避免使用：</p>
 <ul>
-<li><strong><code v-pre>Vector</code> 和 <code v-pre>Stack</code></strong>：这两个类自带同步机制，但由于同步的粒度较大，在高并发的环境下性能较差，因此不推荐使用。可以考虑其他更高效的解决方案。</li>
-<li><strong><code v-pre>CopyOnWriteArrayList</code></strong>：适用于读多写少的场景，每次写入都会复制整个底层数组，从而确保读取操作不需要加锁。</li>
-<li><strong><code v-pre>CopyOnWriteArraySet</code></strong>：与 <code v-pre>CopyOnWriteArrayList</code> 类似，适用于无重复元素的线程安全集合。</li>
-<li><strong><code v-pre>ConcurrentHashMap</code></strong>：高效的线程安全映射表，支持并发读写，在并发环境下表现优异。</li>
-<li><strong><code v-pre>BlockingQueue</code> 系列</strong>：如 <code v-pre>ArrayBlockingQueue</code>、<code v-pre>LinkedBlockingQueue</code>，适用于生产者-消费者模型，支持线程间的安全交换。</li>
+<li><code v-pre>ArrayList</code></li>
+<li><code v-pre>HashMap</code></li>
+<li><code v-pre>LinkedList</code></li>
+<li><code v-pre>HashSet</code> 等</li>
 </ul>
-<h3 id="•-concurrenthashmap的使用示例" tabindex="-1"><a class="header-anchor" href="#•-concurrenthashmap的使用示例"><span>• <strong>ConcurrentHashMap的使用示例</strong></span></a></h3>
-<p><code v-pre>ConcurrentHashMap</code> 提供了比 <code v-pre>Hashtable</code> 更细粒度的锁机制，允许多个线程并发地读取并修改映射表。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">ConcurrentHashMap</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> map </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> ConcurrentHashMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">put</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"apple"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">put</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"banana"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">computeIfPresent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"apple"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, (key, value) </span><span style="--shiki-light:#C18401;--shiki-dark:#C678DD">-></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> value </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">putIfAbsent</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cherry"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(map);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li><strong><code v-pre>computeIfPresent()</code></strong>：如果键已经存在，可以更新值；如果键不存在，则不执行操作。</li>
-<li><strong><code v-pre>putIfAbsent()</code></strong>：如果键不存在，则插入；如果键存在，则不做任何操作。</li>
-</ul>
-<h3 id="•-线程安全集合的性能考虑" tabindex="-1"><a class="header-anchor" href="#•-线程安全集合的性能考虑"><span>• <strong>线程安全集合的性能考虑</strong></span></a></h3>
-<p>虽然线程安全集合类保证了并发操作的安全性，但它们通常会带来性能上的开销。选择合适的集合类时，需要综合考虑读写比例、操作的粒度等因素。</p>
+<p>这些集合在并发读写中没有任何线程安全机制，容易导致数据不一致、死循环（如旧版 <code v-pre>HashMap</code> 扩容）或程序崩溃。</p>
 <hr>
-<h2 id="_2-自定义集合类与优化" tabindex="-1"><a class="header-anchor" href="#_2-自定义集合类与优化"><span>2. <strong>自定义集合类与优化</strong></span></a></h2>
-<p>在某些情况下，Java 提供的集合类无法满足特定的需求，此时可以根据实际需求自定义集合类。自定义集合类时，通常需要继承或实现集合框架中的某个接口（如 <code v-pre>Collection</code> 或 <code v-pre>Map</code>）并重写相应的方法。</p>
-<h3 id="•-自定义集合类的基本结构" tabindex="-1"><a class="header-anchor" href="#•-自定义集合类的基本结构"><span>• <strong>自定义集合类的基本结构</strong></span></a></h3>
+<p><strong>5. 警惕性能陷阱</strong></p>
+<ul>
+<li><code v-pre>Collections.synchronizedXXX()</code> 虽然提供了线程安全包装，但性能差，锁粒度粗，容易成为瓶颈。</li>
+<li><code v-pre>Hashtable</code> 是遗留类，已被 <code v-pre>ConcurrentHashMap</code> 取代，避免使用。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>场景描述</th>
+<th>推荐集合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读多写少</td>
+<td>CopyOnWriteArrayList</td>
+</tr>
+<tr>
+<td>高并发读写</td>
+<td>ConcurrentHashMap</td>
+</tr>
+<tr>
+<td>有序并发访问</td>
+<td>ConcurrentSkipListMap / Set</td>
+</tr>
+<tr>
+<td>阻塞队列 / 消费者模型</td>
+<td>LinkedBlockingQueue, ArrayBlockingQueue</td>
+</tr>
+<tr>
+<td>简单线程安全包装（低性能）</td>
+<td>Collections.synchronizedList 等</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4-设计模式与源码设计思想" tabindex="-1"><a class="header-anchor" href="#_4-设计模式与源码设计思想"><span>4.设计模式与源码设计思想</span></a></h2>
+<blockquote>
+<p>这部分不太重要</p>
+</blockquote>
+<p>Java集合框架是基于许多经典设计模式和原则来实现的，它通过不同的集合类和接口，为开发者提供了高效、灵活的数据存储解决方案。在深入分析Java集合框架时，我们可以发现其中有大量设计模式的应用以及源码设计思想的体现。</p>
+<hr>
+<h4 id="一、集合框架中的常见设计模式" tabindex="-1"><a class="header-anchor" href="#一、集合框架中的常见设计模式"><span>一、集合框架中的常见设计模式</span></a></h4>
 <ol>
-<li><strong>继承 <code v-pre>AbstractCollection</code> 或实现 <code v-pre>Collection</code> 接口</strong>：提供通用的实现，使自定义集合类具备集合类的基本操作。</li>
-<li><strong>重写必要的方法</strong>：如 <code v-pre>add()</code>, <code v-pre>remove()</code>, <code v-pre>size()</code>, <code v-pre>contains()</code> 等。</li>
-</ol>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> CustomList</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> implements</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> List</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">[] elements</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> int</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> size </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> CustomList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        elements </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Object</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">10</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">];</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    @</span><span style="--shiki-light:#A626A4;--shiki-dark:#E5C07B">Override</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> boolean</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> add</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> e</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
-<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">        ensureCapacity</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        elements[size++] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> e;</span></span>
+<li>
+<p><strong>工厂模式（Factory Pattern）</strong></p>
+<ul>
+<li><strong>概述</strong>：工厂模式用于创建对象的接口，但不暴露对象创建的具体实现。</li>
+<li><strong>在集合框架中的应用</strong>：<code v-pre>Collections</code> 类和 <code v-pre>List</code>、<code v-pre>Set</code>、<code v-pre>Map</code> 等接口的实现都遵循了工厂模式。例如，<code v-pre>Collections</code> 类提供了静态工厂方法（如 <code v-pre>singletonList()</code>、<code v-pre>emptyList()</code> 等）来创建不可变集合对象。</li>
+<li><strong>源码示例</strong>：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> &#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">T</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> List</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">T</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> singletonList</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">T</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> o) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> SingletonList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(o)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这里的 <code v-pre>singletonList</code> 就是工厂方法，通过封装集合的创建逻辑，提供特定类型的集合实例。</p>
+</li>
+<li>
+<p><strong>单例模式（Singleton Pattern）</strong></p>
+<ul>
+<li><strong>概述</strong>：确保某个类只有一个实例，并提供全局访问点。</li>
+<li><strong>在集合框架中的应用</strong>：<code v-pre>EnumSet</code> 是一个典型的单例模式应用。因为 <code v-pre>EnumSet</code> 只能处理枚举类型，所以它通过内部静态方法确保了集合的唯一性和单例模式。</li>
+<li><strong>源码示例</strong>：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> &#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> extends </span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Enum</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">E</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">>></span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> EnumSet</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">E</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> of</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> first</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> E</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">...</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> rest</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> EnumSet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">allOf</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">first</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">getDeclaringClass</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">clone</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>EnumSet</code> 确保了枚举集合的单一性，不会创建多余的实例。</p>
+</li>
+<li>
+<p><strong>策略模式（Strategy Pattern）</strong></p>
+<ul>
+<li><strong>概述</strong>：通过封装算法，允许在运行时切换算法。</li>
+<li><strong>在集合框架中的应用</strong>：在 <code v-pre>TreeSet</code> 和 <code v-pre>TreeMap</code> 中，元素的比较方式由 <code v-pre>Comparator</code> 接口策略化。<code v-pre>Comparator</code> 可以在运行时被替换，从而改变元素的排序方式。</li>
+<li><strong>源码示例</strong>：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> TreeSet</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Comparator</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">?</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> super</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> E</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> comparator) {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">    this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">comparator</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> comparator</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>TreeSet</code> 和 <code v-pre>TreeMap</code> 允许用户通过传入不同的 <code v-pre>Comparator</code> 来决定集合的排序策略。</p>
+</li>
+<li>
+<p><strong>装饰者模式（Decorator Pattern）</strong></p>
+<ul>
+<li><strong>概述</strong>：允许动态地给对象添加额外的功能。</li>
+<li><strong>在集合框架中的应用</strong>：<code v-pre>List</code>、<code v-pre>Set</code> 和 <code v-pre>Map</code> 等集合接口有多个装饰类，如 <code v-pre>Collections.unmodifiableList()</code>，它封装了一个集合对象，为集合提供只读功能。</li>
+<li><strong>源码示例</strong>：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> static</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> &#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">T</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> List</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">T</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> unmodifiableList</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">?</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> extends T</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> list) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> UnmodifiableList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(list)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code v-pre>UnmodifiableList</code> 是对原集合的装饰，使得外部无法修改该集合。</p>
+</li>
+<li>
+<p><strong>代理模式（Proxy Pattern）</strong></p>
+<ul>
+<li><strong>概述</strong>：通过代理对象控制对原对象的访问。</li>
+<li><strong>在集合框架中的应用</strong>：<code v-pre>CopyOnWriteArrayList</code> 类使用了代理模式，它的行为被“复制”到一个新的副本中，以避免直接修改原集合时的并发问题。</li>
+<li><strong>源码示例</strong>：</li>
+</ul>
+<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">public</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> boolean</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> add</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">E</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> e) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    final</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> ReentrantLock</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> lock </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> this</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">lock</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">    lock</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">lock</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    try</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> {</span></span>
+<span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">        Object</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">[] elements </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> getArray</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        int</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> elements</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">        // Create a new array for every modification.</span></span>
+<span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">        Object</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75">[] newElements </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">copyOf</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(elements, length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">        newElements[length] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> e</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">        setArray</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(newElements)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
 <span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        return</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> true</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    @</span><span style="--shiki-light:#A626A4;--shiki-dark:#E5C07B">Override</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    public</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> E</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> get</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#383A42;--shiki-light-font-style:inherit;--shiki-dark:#E06C75;--shiki-dark-font-style:italic"> index</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (index </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">&#x3C;</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> ||</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> index </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">>=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> size) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">throw</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> IndexOutOfBoundsException</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (E) elements[index];</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">    // 实现其他方法...</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    private</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> void</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> ensureCapacity</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> {</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (size </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">==</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> elements</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">            elements </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">copyOf</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(elements, </span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">elements</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">length</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> *</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        }</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    }</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="•-性能优化与内存管理" tabindex="-1"><a class="header-anchor" href="#•-性能优化与内存管理"><span>• <strong>性能优化与内存管理</strong></span></a></h3>
-<p>在自定义集合类时，需要特别关注性能，尤其是在扩容、内存分配和释放方面。例如，可以在集合容量较小时避免频繁扩容，合理设置初始容量来避免后期扩展时的性能损耗。</p>
-<h3 id="•-优化迭代器" tabindex="-1"><a class="header-anchor" href="#•-优化迭代器"><span>• <strong>优化迭代器</strong></span></a></h3>
-<p>如果集合类需要频繁迭代，建议实现自定义的 <code v-pre>Iterator</code> 类，以避免性能瓶颈。通过优化迭代器的实现，避免不必要的对象创建和内存开销。</p>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    } </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">finally</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75"> {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        lock</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">unlock</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">    }</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这个设计通过复制原数组来避免在并发修改集合时出现问题，从而使得集合在多线程环境下保持线程安全。</p>
+</li>
+</ol>
 <hr>
-<h2 id="_3-集合与流式处理-java-8-新特性" tabindex="-1"><a class="header-anchor" href="#_3-集合与流式处理-java-8-新特性"><span>3. <strong>集合与流式处理：Java 8+ 新特性</strong></span></a></h2>
-<p>Java 8 引入了 <code v-pre>Stream</code> API，使集合类能够以声明式的方式处理数据流，极大提高了操作集合的灵活性和效率。</p>
-<h3 id="•-stream-基本使用" tabindex="-1"><a class="header-anchor" href="#•-stream-基本使用"><span>• <strong>Stream 基本使用</strong></span></a></h3>
-<p>Stream 提供了一种顺序或并行的方式来处理集合中的数据，可以使用方法链来执行复杂的操作，如过滤、映射、排序等。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> list </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">asList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"apple"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"banana"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"cherry"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"date"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> filteredList </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">stream</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">filter</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(s </span><span style="--shiki-light:#C18401;--shiki-dark:#C678DD">-></span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> s</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">startsWith</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"a"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(String</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">::</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">toUpperCase)</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">collect</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Collectors</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">toList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">());</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(filteredList);</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 输出 [APPLE]</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li><strong><code v-pre>filter()</code></strong>：用于过滤不符合条件的元素。</li>
-<li><strong><code v-pre>map()</code></strong>：用于将集合中的元素转换成另一种类型。</li>
-<li><strong><code v-pre>collect()</code></strong>：将 Stream 结果收集成集合。</li>
-</ul>
-<h3 id="•-并行流处理" tabindex="-1"><a class="header-anchor" href="#•-并行流处理"><span>• <strong>并行流处理</strong></span></a></h3>
-<p>使用 <code v-pre>parallelStream()</code> 可以启用并行流，充分利用多核 CPU 提高性能。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> list </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">asList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">4</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">5</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> sum </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">parallelStream</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">mapToInt</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(Integer</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">::</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">intValue)</span></span>
-<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    .</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">sum</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
-<span class="line"></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(sum);</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 输出 15</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li>注意：并行流适用于处理较大数据集，但对于小数据集和不需要复杂操作的流，串行流可能更高效。</li>
-</ul>
-<h3 id="•-常见的流操作" tabindex="-1"><a class="header-anchor" href="#•-常见的流操作"><span>• <strong>常见的流操作：</strong></span></a></h3>
+<h4 id="二、java集合中的源码设计思想" tabindex="-1"><a class="header-anchor" href="#二、java集合中的源码设计思想"><span>二、Java集合中的源码设计思想</span></a></h4>
+<ol>
+<li><strong>高内聚低耦合</strong>
 <ul>
-<li><strong><code v-pre>sorted()</code></strong>：对流中的元素进行排序。</li>
-<li><strong><code v-pre>distinct()</code></strong>：去重。</li>
-<li><strong><code v-pre>reduce()</code></strong>：对流中的元素进行归约操作（如求和、求积等）。</li>
+<li><strong>概述</strong>：集合类的设计遵循了高内聚低耦合的原则，意味着每个集合类仅负责实现集合的特定功能，而与其他类或组件的耦合度尽量保持在最低。</li>
+<li><strong>体现</strong>：通过接口和抽象类，Java集合框架使得不同类型的集合可以灵活替换，并且实现了面向接口编程。例如，<code v-pre>List</code>、<code v-pre>Set</code>、<code v-pre>Map</code> 都是集合接口，具体的实现类如 <code v-pre>ArrayList</code>、<code v-pre>HashSet</code>、<code v-pre>HashMap</code> 等都有各自独立的实现。</li>
 </ul>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">List</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> list </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> Arrays</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">asList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">4</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">5</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> sum </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">stream</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">().</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">reduce</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, Integer</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">::</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">sum);</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">System</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">out</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">println</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(sum);</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic"> // 输出 15</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr>
-<h2 id="_4-集合类的高级实践技巧" tabindex="-1"><a class="header-anchor" href="#_4-集合类的高级实践技巧"><span>4. <strong>集合类的高级实践技巧</strong></span></a></h2>
-<h3 id="•-使用-enumset-和-enummap" tabindex="-1"><a class="header-anchor" href="#•-使用-enumset-和-enummap"><span>• <strong>使用 <code v-pre>EnumSet</code> 和 <code v-pre>EnumMap</code></strong></span></a></h3>
-<p><code v-pre>EnumSet</code> 和 <code v-pre>EnumMap</code> 是专门为枚举类型设计的集合类，性能较好，并且能够有效减少内存占用。<code v-pre>EnumSet</code> 是一个非常高效的 <code v-pre>Set</code> 实现，专门用来存储枚举类型的元素。</p>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">EnumSet</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> weekend </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> EnumSet</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">of</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">SATURDAY</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">SUNDAY</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
-<span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">EnumMap</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> dayMessages </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> EnumMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">class</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
-<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">dayMessages</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">put</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">Day</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">MONDAY</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"Start of the week"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
-<li><strong><code v-pre>EnumSet</code></strong>：在存储枚举类型元素时，相比于 <code v-pre>HashSet</code> 更高效，内存占用也更少。</li>
-<li><strong><code v-pre>EnumMap</code></strong>：专门为枚举类型提供的 <code v-pre>Map</code> 实现，性能非常优秀。</li>
-</ul>
-<h3 id="•-集合的惰性加载与懒初始化" tabindex="-1"><a class="header-anchor" href="#•-集合的惰性加载与懒初始化"><span>• <strong>集合的惰性加载与懒初始化</strong></span></a></h3>
-<p>在某些场景中，使用懒初始化的集合可以提高性能。比如，当集合中某些数据只在需要时才会被计算和加载时，可以采用懒加载模式，避免不必要的计算和内存开销。</p>
-<h3 id="•-自定义集合类的高级功能" tabindex="-1"><a class="header-anchor" href="#•-自定义集合类的高级功能"><span>• <strong>自定义集合类的高级功能</strong></span></a></h3>
-<p>如果系统中对性能和功能有极高要求，可以在自定义集合类中引入更复杂的功能，如自动排序、懒加载、批量操作等，进一步提高效率。</p>
-<hr>
-<h1 id="第五部分-集合框架在实际工程中的应用与优化" tabindex="-1"><a class="header-anchor" href="#第五部分-集合框架在实际工程中的应用与优化"><span><strong>第五部分：集合框架在实际工程中的应用与优化</strong></span></a></h1>
-<p>这一部分关注如何在开发过程中实际应用集合框架，如何根据不同场景选择合适的集合类，避免常见的性能瓶颈，同时介绍一些优化技术，帮助开发者在大规模数据处理或高并发场景下提升系统性能。</p>
-<h2 id="_1-集合类的选择与性能权衡" tabindex="-1"><a class="header-anchor" href="#_1-集合类的选择与性能权衡"><span>1. <strong>集合类的选择与性能权衡</strong></span></a></h2>
-<h3 id="•-根据需求选择合适的集合类" tabindex="-1"><a class="header-anchor" href="#•-根据需求选择合适的集合类"><span>• <strong>根据需求选择合适的集合类</strong></span></a></h3>
-<p>在实际开发中，选择合适的集合类对于性能至关重要。不同的集合类有不同的特性，适用于不同的场景。例如：</p>
+</li>
+<li><strong>接口与抽象类的运用</strong>
 <ul>
-<li><strong><code v-pre>ArrayList</code></strong>：如果你需要频繁读取但不太需要修改集合，<code v-pre>ArrayList</code> 是一个非常好的选择。它的底层是一个数组，支持 O(1) 的随机访问。</li>
-<li><strong><code v-pre>LinkedList</code></strong>：如果你的应用场景中需要频繁插入和删除元素，<code v-pre>LinkedList</code> 可能会更合适。它的插入和删除操作是 O(1)，但随机访问性能较差。</li>
-<li><strong><code v-pre>HashMap</code></strong>：用于快速查找数据，如果需要按照键值对存储和查找元素，<code v-pre>HashMap</code> 是首选。它支持 O(1) 的查找和插入操作，但并不保证元素的顺序。</li>
-<li><strong><code v-pre>TreeMap</code></strong>：如果你需要按键排序，<code v-pre>TreeMap</code> 提供了基于红黑树的数据结构，支持 O(log n) 的查找和插入。</li>
-<li><strong><code v-pre>HashSet</code> vs <code v-pre>TreeSet</code></strong>：如果你需要保证元素唯一性并且无需排序，<code v-pre>HashSet</code> 适合用来存储不重复的元素。如果需要排序，则使用 <code v-pre>TreeSet</code>。</li>
+<li><strong>概述</strong>：集合框架的设计采用了大量的接口和抽象类来解耦集合的实现与使用。</li>
+<li><strong>体现</strong>：通过 <code v-pre>Collection</code>、<code v-pre>List</code>、<code v-pre>Set</code>、<code v-pre>Map</code> 等接口，集合框架能够灵活地支持不同类型的集合。在实现细节方面，诸如 <code v-pre>AbstractList</code> 和 <code v-pre>AbstractSet</code> 提供了基础的功能实现，让具体的实现类可以继承并加以拓展。</li>
 </ul>
-<h3 id="•-集合操作的时间复杂度" tabindex="-1"><a class="header-anchor" href="#•-集合操作的时间复杂度"><span>• <strong>集合操作的时间复杂度</strong></span></a></h3>
-<p>理解集合类的时间复杂度是优化性能的关键。例如，<code v-pre>ArrayList</code> 的随机访问是 O(1)，但插入和删除操作则是 O(n)，而 <code v-pre>LinkedList</code> 则在插入和删除方面更具优势。</p>
-<table>
-<thead>
-<tr>
-<th>集合类型</th>
-<th>查找</th>
-<th>插入</th>
-<th>删除</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code v-pre>ArrayList</code></td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td><code v-pre>LinkedList</code></td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td><code v-pre>HashSet</code></td>
-<td>O(1)</td>
-<td>O(1)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td><code v-pre>TreeSet</code></td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-<td>O(log n)</td>
-</tr>
-</tbody>
-</table>
+</li>
+<li><strong>通用性与灵活性</strong>
 <ul>
-<li><strong><code v-pre>HashMap</code></strong> 和 <strong><code v-pre>HashSet</code></strong> 通常表现出 O(1) 的查找效率，但会受到哈希冲突的影响，因此在设计时，确保选择合理的哈希函数和负载因子。</li>
-<li><strong><code v-pre>TreeMap</code></strong> 和 <strong><code v-pre>TreeSet</code></strong> 提供 O(log n) 的查找、插入和删除性能，适用于需要排序的场景。</li>
+<li><strong>概述</strong>：Java集合框架强调通用性，几乎所有集合类都遵循了一种标准的接口规范，确保了不同集合类之间的通用操作。</li>
+<li><strong>体现</strong>：通过一组统一的接口和方法，所有集合类（如 <code v-pre>add()</code>、<code v-pre>remove()</code>、<code v-pre>size()</code>）都遵循相同的约定，这使得开发者可以更轻松地切换不同类型的集合（如 <code v-pre>ArrayList</code> 与 <code v-pre>LinkedList</code>）而不改变代码逻辑。</li>
 </ul>
-<hr>
-<h2 id="_2-内存管理与集合的优化" tabindex="-1"><a class="header-anchor" href="#_2-内存管理与集合的优化"><span>2. <strong>内存管理与集合的优化</strong></span></a></h2>
-<p>集合类的内存管理和性能优化在处理大量数据时尤为重要。在实际应用中，我们通常需要对集合类进行内存优化，尤其是在处理大数据集时。</p>
-<h3 id="•-初始容量与扩容策略" tabindex="-1"><a class="header-anchor" href="#•-初始容量与扩容策略"><span>• <strong>初始容量与扩容策略</strong></span></a></h3>
-<p>集合类在插入元素时，往往会根据需要动态扩容，这会带来额外的性能开销。特别是对于 <code v-pre>ArrayList</code> 和 <code v-pre>HashMap</code>，如果没有合理设置初始容量，可能会导致多次扩容。</p>
+</li>
+<li><strong>延迟初始化与懒加载</strong>
 <ul>
-<li><strong>设置合适的初始容量</strong>：在创建 <code v-pre>ArrayList</code> 或 <code v-pre>HashMap</code> 时，可以根据预期的元素数量来设定初始容量，避免多次扩容。</li>
+<li><strong>概述</strong>：在某些集合类中，采用延迟初始化和懒加载的策略来优化性能。</li>
+<li><strong>体现</strong>：例如，在 <code v-pre>HashMap</code> 中，内部数组并不是在初始化时就创建，而是在需要时才进行扩容，确保内存的有效利用。<code v-pre>Lazy</code> 和 <code v-pre>synchronized</code> 在某些线程安全的集合类（如 <code v-pre>CopyOnWriteArrayList</code>）中发挥作用，减少不必要的计算和开销。</li>
 </ul>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">ArrayList</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> list </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> ArrayList</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1000</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // 设置初始容量为1000</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><ul>
-<li><strong>负载因子的选择</strong>：对于 <code v-pre>HashMap</code>，负载因子决定了它何时扩容。选择一个合适的负载因子可以减少内存消耗，但负载因子过大会增加哈希冲突的概率。</li>
-</ul>
-<div class="language-java line-numbers-mode" data-highlighter="shiki" data-ext="java" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code" v-pre=""><code><span class="line"><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">HashMap</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">&#x3C;</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">String</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> Integer</span><span style="--shiki-light:#E45649;--shiki-dark:#ABB2BF">></span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> map </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> new</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> HashMap</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&#x3C;></span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">16</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0.75f</span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span><span style="--shiki-light:#A0A1A7;--shiki-light-font-style:italic;--shiki-dark:#7F848E;--shiki-dark-font-style:italic">  // 初始容量16，负载因子0.75</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="•-内存管理技巧" tabindex="-1"><a class="header-anchor" href="#•-内存管理技巧"><span>• <strong>内存管理技巧</strong></span></a></h3>
-<ul>
-<li><strong>对象池（Object Pool）</strong>：如果集合类在应用中频繁创建销毁，可以考虑使用对象池来缓存对象，减少重复创建和垃圾回收带来的性能问题。</li>
-<li><strong><code v-pre>WeakHashMap</code> 与缓存</strong>：<code v-pre>WeakHashMap</code> 是一种特殊的 <code v-pre>Map</code> 实现，它的键是弱引用，意味着当键对象不再被其他对象引用时，它会被垃圾回收。它适用于缓存场景，可以避免内存泄漏。</li>
-</ul>
-<hr>
-<h2 id="_3-高并发环境中的集合优化" tabindex="-1"><a class="header-anchor" href="#_3-高并发环境中的集合优化"><span>3. <strong>高并发环境中的集合优化</strong></span></a></h2>
-<p>在多线程环境中，使用线程安全的集合类非常关键。Java 提供了多种高效的线程安全集合类，但并非所有场景下都需要它们。</p>
-<h3 id="•-选择合适的并发集合类" tabindex="-1"><a class="header-anchor" href="#•-选择合适的并发集合类"><span>• <strong>选择合适的并发集合类</strong></span></a></h3>
-<ul>
-<li><strong><code v-pre>ConcurrentHashMap</code></strong>：适用于高并发的环境，能够有效地减少锁的竞争，并行执行读操作，同时支持高效的修改操作。</li>
-<li><strong><code v-pre>CopyOnWriteArrayList</code></strong> 和 <strong><code v-pre>CopyOnWriteArraySet</code></strong>：适用于“读多写少”的场景，写操作会复制整个集合，确保读操作不受影响。尽管写入开销较大，但在某些场合依然非常有效。</li>
-</ul>
-<h3 id="•-避免过度同步" tabindex="-1"><a class="header-anchor" href="#•-避免过度同步"><span>• <strong>避免过度同步</strong></span></a></h3>
-<p>在高并发环境中，过度同步可能导致性能瓶颈。可以通过以下方式来避免不必要的同步：</p>
-<ul>
-<li><strong>分段锁（Segment Locking）</strong>：<code v-pre>ConcurrentHashMap</code> 内部采用了分段锁技术，将数据分为多个段，每个段都有独立的锁，从而实现更高效的并发处理。</li>
-<li><strong>减少锁粒度</strong>：通过使用无锁算法或减少同步块的范围来提高并发性能。例如，使用 <code v-pre>Atomic</code> 类来进行原子操作而不加锁。</li>
-</ul>
-<hr>
-<h2 id="_4-性能优化与数据结构选择" tabindex="-1"><a class="header-anchor" href="#_4-性能优化与数据结构选择"><span>4. <strong>性能优化与数据结构选择</strong></span></a></h2>
-<p>在实际应用中，选择合适的数据结构对系统的性能至关重要。不同的业务场景可能需要不同的数据结构，而对集合框架的优化可以有效提高性能。</p>
-<h3 id="•-trie-树-快速查找" tabindex="-1"><a class="header-anchor" href="#•-trie-树-快速查找"><span>• <strong>Trie 树：快速查找</strong></span></a></h3>
-<p>对于需要频繁查找字符串的应用（如搜索引擎、自动补全），<code v-pre>Trie</code> 树是一种高效的数据结构。尽管 <code v-pre>Trie</code> 并不是 Java 集合框架的一部分，但可以通过实现 <code v-pre>Map</code> 接口来构建。</p>
-<h3 id="•-bloom-filter-空间效率" tabindex="-1"><a class="header-anchor" href="#•-bloom-filter-空间效率"><span>• <strong>Bloom Filter：空间效率</strong></span></a></h3>
-<p>对于大规模数据的去重，可以使用 <code v-pre>Bloom Filter</code>。它是一种基于位图的数据结构，可以高效地判断一个元素是否在集合中。由于存在误判的可能，适用于非严格去重的场景。</p>
-<hr>
-<h2 id="_5-常见的性能优化策略" tabindex="-1"><a class="header-anchor" href="#_5-常见的性能优化策略"><span>5. <strong>常见的性能优化策略</strong></span></a></h2>
-<h3 id="•-避免不必要的集合操作" tabindex="-1"><a class="header-anchor" href="#•-避免不必要的集合操作"><span>• <strong>避免不必要的集合操作</strong></span></a></h3>
-<p>尽量避免频繁对集合进行排序、过滤等高复杂度的操作，尤其是在处理大量数据时。如果确实需要这些操作，可以考虑在数据量较小或需要某些排序条件的场景中进行操作。</p>
-<h3 id="•-使用合适的数据结构-1" tabindex="-1"><a class="header-anchor" href="#•-使用合适的数据结构-1"><span>• <strong>使用合适的数据结构</strong></span></a></h3>
-<ul>
-<li>如果需要频繁查找元素，使用 <code v-pre>HashSet</code> 或 <code v-pre>HashMap</code>。</li>
-<li>如果需要按顺序访问，使用 <code v-pre>ArrayList</code> 或 <code v-pre>LinkedList</code>。</li>
-<li>如果需要按特定顺序进行排序，使用 <code v-pre>TreeSet</code> 或 <code v-pre>TreeMap</code>。</li>
-</ul>
+</li>
+</ol>
+<p>Java集合框架不仅仅提供了多种高效的数据结构和操作方法，它背后也体现了许多经典的设计模式和良好的源码设计思想。这些模式和思想的应用使得集合框架在不同的场景下都能提供灵活、高效、可扩展的解决方案。深入理解这些设计模式和源码实现，能够帮助开发者在使用集合框架时更加得心应手，同时也能够在设计自己的系统时，借鉴这些模式来提升代码的可维护性、可扩展性和性能。</p>
 </div></template>
 
 

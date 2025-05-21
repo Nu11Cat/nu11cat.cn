@@ -1,5 +1,4 @@
-<template><div><h3 id="📖-面试-八股文资料-https-nu11cat-github-io-5-资源整理-5-面试-八股文资料-html-📖-面试-八股文资料" tabindex="-1"><a class="header-anchor" href="#📖-面试-八股文资料-https-nu11cat-github-io-5-资源整理-5-面试-八股文资料-html-📖-面试-八股文资料"><span>[📖 面试 &amp; 八股文资料](https://nu11cat.github.io/5.资源整理/5.面试 _ 八股文资料.html#📖-面试-八股文资料)</span></a></h3>
-<ul>
+<template><div><ul>
 <li>常见面试题合集
 <ul>
 <li>Java基础面试题</li>
@@ -14,7 +13,7 @@
 </li>
 <li>八股文整理笔记
 <ul>
-<li><a href="https://leetcode-cn.com/" target="_blank" rel="noopener noreferrer">LeetCode 面试题精选</a></li>
+<li>LeetCode 面试题精选</li>
 <li>Java 面试八股文</li>
 <li>Java 核心面试总结</li>
 <li>Java 面试全方位准备</li>
