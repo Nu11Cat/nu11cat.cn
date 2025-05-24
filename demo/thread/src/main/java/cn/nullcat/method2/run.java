@@ -1,11 +1,15 @@
 package cn.nullcat.method2;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class run extends Thread {
 
     static int piao = 0;
 
     static Object lock = new Object();
 
+    static Lock lock1 = new ReentrantLock();
 
     public run(String name) {
         super(name);
@@ -14,18 +18,19 @@ public class run extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized (run.class) {
-                if(piao<1000){
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    piao++;
-                    System.out.println(getName()+"  "+piao);
-                }else{
+            lock1.lock();
+            try {
+                if(piao == 100) {
                     break;
+                } else {
+                    Thread.sleep(100);
+                    piao++;
+                    System.out.println(getName()+ " " + piao);
                 }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } finally {
+                lock1.unlock();
             }
         }
     }
