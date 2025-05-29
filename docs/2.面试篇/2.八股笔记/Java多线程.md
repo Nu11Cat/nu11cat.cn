@@ -20,10 +20,14 @@ volatile是java的轻量级同步机制，用于修饰变量，被修饰的变�
 
 为了提升执行速度/性能，计算机在执行程序代码的时候，会对指令进行重排序。加上 `volatile`，就可以**禁止这种重排序行为**。
 
-如果两个线程同时对volatile的变量操作，可能会相互覆盖结果，也就是volatile不保证原子性，还是需要synchronized等
+如果两个线程同时对volatile的变量++操作，可能会相互覆盖结果，也就是volatile不保证原子性，还是需要synchronized等
 
 它的实现的底层是JMM，依靠的是内存屏障。
 
 ## synchronized
 
 `synchronized` 是 Java 中的一个关键字，主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。
+
+## ReentrantLock
+
+`ReentrantLock` 是 Java 5 引入的显式锁，是 **可重入锁**，即同一线程可以多次获得锁而不会被阻塞。
