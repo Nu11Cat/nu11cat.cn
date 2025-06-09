@@ -35,3 +35,33 @@ public class SetExample {
 }
 ```
 
+```java
+public class Main {
+    public static void main(String[] args) {
+        // 创建 LinkedHashSet
+        Set<String> set = new LinkedHashSet<>();
+        // 添加元素
+        set.add("apple");
+        set.add("banana");
+        set.add("orange");
+        // 添加重复元素（无效）
+        set.add("banana");
+        // 打印集合（保持插入顺序）
+        System.out.println(set); // [apple, banana, orange]
+        // 判断是否包含某元素
+        System.out.println(set.contains("apple")); // true
+        // 移除元素
+        set.remove("banana");
+        System.out.println(set); // [apple, orange]
+        // 获取大小
+        System.out.println(set.size()); // 2
+        // 判断是否为空
+        System.out.println(set.isEmpty()); // false
+        // 清空集合
+        set.clear();
+        System.out.println(set); // []
+    }
+}
+
+```
+
