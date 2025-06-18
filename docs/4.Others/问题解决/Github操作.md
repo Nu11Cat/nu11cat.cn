@@ -1,5 +1,5 @@
 ---
-title ： Github常用操作
+title : Github常见操作
 ---
 
 #### 1.安装Git
