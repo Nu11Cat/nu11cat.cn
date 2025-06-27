@@ -1,5 +1,6 @@
 ---
 title : Java
+order: 1
 ---
 
 # Java基础
