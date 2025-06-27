@@ -1,5 +1,5 @@
 ---
-title : 集合
+title : Java集合
 order: 2
 ---
 
