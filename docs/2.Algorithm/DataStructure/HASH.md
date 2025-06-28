@@ -1,5 +1,6 @@
 ---
 title : HASH
+order : 5
 ---
 
 ## HashMap

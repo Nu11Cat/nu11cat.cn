@@ -9,9 +9,9 @@ Java集合分为 `Collection`接口，主要用于存放单一元素；另一个
 
 `Collection` 接口又有三个主要的子接口：`List`、`Set` 、 `Queue`。
 
-# List
+# `List`
 
-## ArrayList
+## `ArrayList`
 
 ### 和数组的区别
 
@@ -35,7 +35,7 @@ ArrayList 是 Java 集合框架中的一个类，它的底层其实就是数组�
 
 **复杂度**：至于插入删除的复杂度，如果是头部和指定位置都是O(n)，如果是尾部插入，又分为需要扩容和不需要扩容的情况，如果需要扩容，那么会新建数组然后`copyOf()`，复杂度是O(n)，如果不需要扩容就是O(1)。 
 
-## LinkedList
+## `LinkedList`
 
 `LinkedList`是基于双向链表实现的（JDK1.6 之前为循环链表，JDK1.7 改为普通双向链表），底层是由多个节点（`Node`）连接成的链表，内存地址不连续，只能通过指针来定位，不支持随机快速访问。包括前后节点的引用和存储的元素。线程不安全。
 
@@ -45,7 +45,7 @@ ArrayList 是 Java 集合框架中的一个类，它的底层其实就是数组�
 
 并且它实现了 `List`、`Deque` 和 `Queue` 接口，所以既能当列表用，也能当队列、双端队列、栈来用，功能还是很丰富的。
 
-## CopyOnWriteArrayList
+## `CopyOnWriteArrayList`
 
 `CopyOnWriteArrayList`是Java的一个List的线程安全实现，专门为解决多线程并发场景中的数据一致性的高效读取提供解决方案。
 
@@ -61,13 +61,13 @@ ArrayList 是 Java 集合框架中的一个类，它的底层其实就是数组�
 
 所以它适用于读多写少的场景，以及作为事件监听器。
 
-## Collections.synchronizedList()
+## `Collections.synchronizedList()`
 
 `Collections.synchronizedList()` 是 Java 中的一个工具方法，用于将一个普通的 `List` 包装成一个线程安全的 `List`。它是通过对所有的 `List` 操作加锁来保证线程安全的。
 
 ## 对比
 
-### ArrayList vs LinkedList
+### `ArrayList` vs `LinkedList`
 
 **相同点**：
 
@@ -85,7 +85,7 @@ ArrayList 是 Java 集合框架中的一个类，它的底层其实就是数组�
 - `ArrayList` 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）。
 - **应用场景**：ArrayList 适合查询多，修改少的场景；LinkedList 适合插入和删除操作多的场景。
 
-# Set
+# `Set`
 
 HashSet，LinedHashSet，TreeSet，都是Set接口的实现类，都能保证元素唯一，并且都不是线程安全的。
 
@@ -95,15 +95,15 @@ LinkedHashSet就是在HashSet的基础上维护了一个双向链表表示数据
 
 TreeSet是基于TreeMap实现的，底层是红黑树，它对数据满足自然排序或者你提供的Comparator排序。
 
-# Queue
+# `Queue`
 
 Queue队列
 
 Duque双端队列
 
-# Map
+# `Map`
 
-## HashMap
+## `HashMap`
 
 TreeMap和HashMap都继承自AbstractMap
 
@@ -117,7 +117,7 @@ HashMap的底层是数组+链表/红黑树，核心原理是**通过 key 的 has
 
 为什么HashMap不安全？1.7之前头插法导致在多线程环境下扩容操作可能存在死循环问题；另外无论是7还是8都存在一个数据丢失的问题，实际上是数据覆盖，一种情况是线程1发现hash冲突并且equals满足，即将覆盖数据的时候，CPU执行权被线程2抢走，数据2覆盖了数据，等到线程1再次操作的时候就会把线程2的数据覆盖。还有一种情况是两个线程同时 `put` 操作导致 `size` 的值不正确，进而导致数据覆盖的问题。
 
-## ConcurreHashMap
+## `ConcurreHashMap`
 
 ConcurreHashMap是线程安全版的hashmap。
 
@@ -139,7 +139,7 @@ ConcurreHashMap是线程安全版的hashmap。
 
 **为什么这么改？**这个变化的主要原因是**循环链表并不带来明显的性能优势**，而反而可能带来一些复杂性和潜在的错误。例如，处理尾节点指向头节点的引用可能引发无限循环的问题，尤其是在垃圾回收时。改成普通双向链表后，结构更简单，代码也更加直观。
 
-## RandomAccess
+## `RandomAccess`
 
 `RandomAccess` 接口不过是一个标识接口。标识实现这个接口的类具有随机访问功能。
 
@@ -151,7 +151,7 @@ public interface RandomAccess {
 }
 ```
 
-## fail-fast和fail-safe
+## `fail-fast`和`fail-safe`
 
 Fail-fast 是一种设计策略，它会在集合被修改的情况下**立即抛出异常**。通常，当你在迭代集合时，如果集合被修改了，迭代器就会抛出 `ConcurrentModificationException` 异常。
 
