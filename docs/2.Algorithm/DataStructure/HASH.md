@@ -1,5 +1,5 @@
 ---
-title : HASH
+title : Hash
 order : 5
 ---
 
