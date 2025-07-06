@@ -163,7 +163,7 @@ Fail-safe 是另一种设计策略，它允许在遍历集合的同时**修改�
 
 `CopyOnWriteArrayList` 和 `ConcurrentHashMap`，它们采用了 **fail-safe** 策略
 
-.
+
 
 
 
