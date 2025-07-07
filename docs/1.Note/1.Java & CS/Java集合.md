@@ -89,7 +89,7 @@ ArrayList 是 Java 集合框架中的一个类，它的底层其实就是数组�
 
 HashSet，LinedHashSet，TreeSet，都是Set接口的实现类，都能保证元素唯一，并且都不是线程安全的。
 
-HashSet实际上就是半个HashMap，它是基于HasmMap的Key唯一的特性实现的，用来实现HashSet的HasmMap的value是一个固定常量，一般是Boolean.TRUE。
+HashSet是基于HasmMap的Key唯一的特性实现的，用来实现HashSet的HasmMap的value是一个固定常量，一般是Boolean.TRUE。
 
 LinkedHashSet就是在HashSet的基础上维护了一个双向链表表示数据的插入顺序。
 
@@ -97,9 +97,80 @@ TreeSet是基于TreeMap实现的，底层是红黑树，它对数据满足自然
 
 # `Queue`
 
-Queue队列
+## `PriorityQueue`
 
-Duque双端队列
+`PriorityQueue` 是 Java 提供的一个**基于优先级的队列**实现，它实现了 `Queue` 接口，用来存储一组按照优先级自动排序的元素。
+
+和普通队列不同，普通队列是先进先出，而 `PriorityQueue` 中的元素并不是按照插入顺序来出队的，而是按照优先级**最小的元素优先出队**，也就是默认是一个**小顶堆结构**。
+
+它的底层是基于**最小堆（binary heap）实现的数组结构**，插入和删除操作的时间复杂度都是 O(logN)。元素入队后会自动按照优先级进行调整。
+
+默认情况下，队列中的元素必须实现 `Comparable` 接口，使用元素的自然顺序进行排序；如果我们需要自定义排序方式，也可以在构造方法中传入一个 `Comparator`，从而按照指定的优先级进行排序。
+
+值得注意的是，`PriorityQueue` 允许重复元素，但**不允许插入 null**，因为 null 会与内部比较操作冲突。此外，它**不是线程安全的**，在多线程环境下需要通过外部同步或使用并发版本的队列，比如 `PriorityBlockingQueue`。
+
+典型应用场景包括：任务调度器、带权重的消息处理系统、Dijkstra 最短路径算法、Top-K 问题等。
+
+## `BlockingQueue`
+
+`BlockingQueue` 是 Java 中用于**线程间通信**和**任务调度**的一个接口，广泛用于生产者-消费者模型的实现。它的特点是：当队列为空时，消费者线程会被阻塞，直到有新元素加入；而当队列满时，生产者线程会被阻塞，直到队列有空间可以插入新元素。
+
+`BlockingQueue` 主要有两个特性：
+
+1. **阻塞**：如果队列为空，调用 `take()` 方法的线程会被阻塞，直到队列中有元素可用。如果队列已满，调用 `put()` 方法的线程会被阻塞，直到队列有空位。
+2. **线程安全**：通过内部的锁机制（如使用 ReentrantLock 或其他同步机制）来确保多个线程同时访问时，不会产生数据不一致的问题，保证在高并发情况下的正确性和一致性。
+
+`BlockingQueue` 接口有几个常用实现类：
+
+- **`ArrayBlockingQueue`**：基于数组实现的有界阻塞队列，队列的容量是固定的。
+- **`LinkedBlockingQueue`**：基于链表实现的有界阻塞队列，可以设置最大容量，也可以不设置，默认是无界队列。
+- **`PriorityBlockingQueue`**：基于优先级队列实现的阻塞队列，元素会按照优先级顺序排序。
+- **`DelayQueue`**：一个支持延迟获取元素的队列，元素必须实现 `Delayed` 接口，适用于定时任务的场景。
+- **`SynchronousQueue`**：没有任何容量的阻塞队列，每一个 `put` 操作必须等待另一个 `take` 操作才能完成，常用于任务传递。
+
+在实际应用中，`BlockingQueue` 被广泛应用于多线程的任务调度、线程池的实现、生产者-消费者模型等场景。
+
+>`ArrayBlockingQueue` 和 `LinkedBlockingQueue`区别
+>
+>`ArrayBlockingQueue` 和 `LinkedBlockingQueue` 都是常用的阻塞队列，具备线程安全和阻塞特性，但它们在底层结构、容量控制和性能表现上有明显区别。
+>
+>首先，底层实现不同。`ArrayBlockingQueue` 是基于数组实现的，内部使用一个固定长度的数组作为存储结构，因此它的容量必须在创建时指定，无法动态扩容。而 `LinkedBlockingQueue` 是基于链表实现的，每个元素是一个独立的节点，通过链表串联起来，它支持有界和无界两种模式。如果构造时没有指定容量，默认容量是 Integer.MAX_VALUE，相当于一个理论上的无界队列。
+>
+>其次，在性能和资源使用上也有区别。由于数组是连续内存，`ArrayBlockingQueue` 的内存利用更紧凑，内存开销相对较小，适合对内存敏感的场景。而 `LinkedBlockingQueue` 每个元素都需要额外的节点对象，内存开销相对更大，但在高并发场景下，它的插入和移除操作更加平稳，适合大规模数据流动。
+>
+>此外，`LinkedBlockingQueue` 的 put 和 take 操作内部使用的是两把锁（分别用于读和写），而 `ArrayBlockingQueue` 只使用一把锁来控制整个队列，因此在某些高并发情况下，`LinkedBlockingQueue` 的吞吐量可能会更好一些。
+>
+>应用场景上，如果我清楚队列的容量范围，比如用于线程池中的任务提交队列，我更倾向于使用 `ArrayBlockingQueue`，因为它更简单、内存开销更小。但如果任务量无法预估，或者系统允许更大的弹性空间，那么 `LinkedBlockingQueue` 会更适合一些。
+
+## `Queue`和`Deque`
+
+**Queue** 是一个**单端队列**，遵循的是典型的“先进先出”（FIFO）原则。我们通常使用 `offer()` 添加元素，用 `poll()` 或 `remove()` 移除元素，从队首出，从队尾入。常见的实现类有 `LinkedList` 和 `PriorityQueue`，像任务调度、消息队列等场景都是使用 Queue。
+
+而 **Deque** 是“双端队列”，全称是 Double Ended Queue，它既可以从队头添加或移除元素，也可以从队尾进行相同的操作。也就是说，`Deque` 同时支持 FIFO 和 LIFO（后进先出），因此它**既可以当队列用，也可以当栈用**。常用方法比如 `addFirst()`、`addLast()`、`removeFirst()`、`removeLast()`，而实现类像 `ArrayDeque` 和 `LinkedList` 都支持 Deque 接口。
+
+所以总结来说，**Queue 只能一端进、一端出，Deque 两端都能进出，更灵活**，适合处理双向数据结构或实现栈这种结构。
+
+## `ArrayDeque` 和 `LinkedList`
+
+
+
+## `ArrayList` 和 `ArrayDeque`
+
+虽然 `ArrayList` 和 `ArrayDeque` 的名字都带有 "Array"，而且底层都是用数组（Object[]）来存储数据，但它们的设计目的、使用方式以及性能特点有很大的不同。
+
+首先，**`ArrayList` 实现了 `List` 接口**，主要用于按顺序存储元素，强调的是**随机访问和按索引管理数据**。它的底层是一个**线性动态数组**，支持快速的索引访问，比如 `get(index)` 或 `set(index)` 的时间复杂度是 O(1)。但是如果在中间插入或删除元素，就会涉及到大量元素的移动，性能相对较差。
+
+而 **`ArrayDeque` 实现了 `Deque` 接口**，也就是双端队列，它的重点是支持从**队头和队尾进行高效的插入和删除操作**。它底层虽然也是数组，但用的是**循环数组结构**。当数组尾部空间不足时，它会自动绕回到数组头部去使用未占用的位置，这种**环形结构**可以避免频繁的数据移动，使得两端操作的性能非常稳定，都是 O(1) 的时间复杂度。
+
+还有一些细节上的差异，比如：
+
+- `ArrayList` 允许插入 `null` 元素，而 `ArrayDeque` 明确禁止 `null`，因为它用 `null` 表示队列为空，这样更容易区分是否出队成功。
+- 在扩容机制上，两者都支持动态扩容，但 `ArrayList` 是线性扩容（一般是原来容量的 1.5 倍），`ArrayDeque` 的容量总是 2 的幂次方，这有助于在循环数组中通过位运算快速定位元素位置。
+
+使用场景上也有差别：
+
+- 如果我们要频繁地访问元素，尤其是按下标访问，那肯定首选 `ArrayList`。
+- 如果我们实现的是栈（LIFO）或队列（FIFO），尤其需要在两端进行频繁插入/删除，`ArrayDeque` 的性能和空间利用率都比 `LinkedList` 更好，更推荐使用。
 
 # `Map`
 
@@ -163,11 +234,15 @@ Fail-safe 是另一种设计策略，它允许在遍历集合的同时**修改�
 
 `CopyOnWriteArrayList` 和 `ConcurrentHashMap`，它们采用了 **fail-safe** 策略
 
+## `Comparable`和`Comparator`
 
+`Comparable` 接口和 `Comparator` 接口都是 Java 中用于排序的接口
 
+首先，`Comparable` 是一个 **内部比较器**，它是由类自己实现的排序规则。也就是说，如果一个类实现了 `Comparable` 接口，它就必须重写 `compareTo()` 方法，并在方法中定义自己的“自然排序规则”。比如像 `String`、`Integer`、`Date` 这些类本身就实现了 `Comparable`，可以直接进行排序。
 
+而 `Comparator` 是一个 **外部比较器**，它通常在我们无法修改目标类源码，或者需要灵活定义多种排序规则时使用。通过实现 `Comparator` 接口中的 `compare()` 方法，我们可以在类的外部定义排序逻辑。像我们用 `Collections.sort(list, comparator)` 或 `TreeMap` 传入比较器时，都是在使用 `Comparator`。
 
-
+简单理解的话，`Comparable` 是让“对象自己可比较”，而 `Comparator` 是“通过外部工具比较对象”。另外值得注意的是，`Comparator` 支持 Lambda 表达式，所以在 Java 8 之后我们可以用非常简洁的方式写出比较逻辑。
 
 
 
