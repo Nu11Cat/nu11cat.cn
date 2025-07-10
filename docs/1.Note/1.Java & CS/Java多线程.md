@@ -211,6 +211,8 @@ Java 中的 `synchronized` 和 `ReentrantLock` 都是**可重入锁**的实现�
 
 **CAS算法**
 
+[CAS 详解 | JavaGuide](https://javaguide.cn/java/concurrent/cas.html)
+
 CAS，全称是 Compare-And-Swap（比较并交换），是一种常见的无锁并发原子操作，底层由硬件指令支持。
 
 它的核心思想是：在更新某个共享变量时，先比较它的当前值是否是预期值，如果是，则更新为新值；如果不是，说明已经被其他线程修改过，更新失败，通常会进行重试。
@@ -244,6 +246,8 @@ CAS 只比较当前值和预期值是否相等，但**并不知道这个值在�
 而**共享锁**允许**多个线程同时持有**，只要它们执行的操作不会互相冲突。共享锁通常用于读操作，也叫“读锁”。多个线程可以同时读取共享数据，只要没有线程进行写操作，这种方式可以显著提高读密集型场景下的并发性能。
 
 # JMM
+
+[JMM（Java 内存模型）详解 | JavaGuide](https://javaguide.cn/java/concurrent/jmm.html)
 
 # 线程池
 
@@ -667,9 +671,94 @@ TTL 的核心原理是：在任务提交给线程池时，它会把当前线程�
 
 # 其他
 
+## Future
 
+`Future` 是 Java 5 引入的一个接口，用于表示一个异步计算的结果。它通常与 `ExecutorService` 搭配使用，用来提交任务并获取结果。调用 `submit()` 方法后，主线程可以继续执行其他操作，稍后通过 `Future` 获取任务的执行结果。
 
+`Future` 的核心方法包括：
 
+- `get()`：阻塞当前线程，直到任务执行完毕并返回结果；
+- `get(long, TimeUnit)`：指定最大等待时间，防止无限阻塞；
+- `isDone()`：判断任务是否已经完成；
+- `isCancelled()` 和 `cancel()`：用于任务的取消控制。
+
+虽然 `Future` 支持异步获取结果，但它本身是**阻塞式的**。也就是说，如果你调用 `get()` 方法，主线程仍然会被阻塞直到结果返回，因此并不是真正意义上的“非阻塞异步”。
+
+此外，`Future` 不支持任务之间的组合、链式调用，也不具备异常回调等机制，编程模型较为原始。在复杂并发场景下，使用起来相对繁琐，缺乏灵活性。
+
+正因为这些局限，Java 8 后引入了更强大的 `CompletableFuture`，它是对 `Future` 的增强，解决了结果阻塞、组合困难、缺乏回调等问题。
+
+## CompletableFuture
+
+`CompletableFuture` 是 Java 8 引入的一个强大的异步编程工具，用于表示一个可能在未来某个时间点完成的计算结果。它不仅可以实现类似 `Future` 的异步任务提交与获取，还大大增强了任务之间的组合、异常处理、以及非阻塞回调等能力。
+
+与传统的 `Future` 相比，`CompletableFuture` 最大的优势有三点：
+
+第一，它支持任务之间的链式组合，比如可以在任务执行完成后自动触发下一个任务（如 `thenApply`、`thenAccept`、`thenCompose`），从而实现流式异步逻辑，而不需要手动阻塞或轮询。
+
+第二，它提供了丰富的并发编排方法。可以通过 `thenCombine`、`allOf`、`anyOf` 等方法将多个异步任务组合起来，控制它们的并发执行和聚合结果，非常适合构建复杂的异步流程。
+
+第三，它支持异常处理和任务回退机制，比如 `exceptionally`、`handle`、`whenComplete` 等，可以在任务失败时优雅地处理异常，避免主流程崩溃。
+
+此外，`CompletableFuture` 还支持异步任务的执行线程控制。默认会使用公共线程池（ForkJoinPool），也可以通过 `supplyAsync` 或 `runAsync` 指定自定义线程池，便于在不同业务中做资源隔离。
+
+总的来说，`CompletableFuture` 让 Java 的异步编程变得更加灵活、优雅、非阻塞，并且非常适合在高并发、响应式、微服务等场景中使用。
+
+### [一个任务需要依赖另外两个任务执行完之后再执行，怎么设计？](https://javaguide.cn/java/concurrent/java-concurrent-questions-03.html#⭐️一个任务需要依赖另外两个任务执行完之后再执行-怎么设计)
+
+### [使用 CompletableFuture，有一个任务失败，如何处理异常？](https://javaguide.cn/java/concurrent/java-concurrent-questions-03.html#⭐️使用-completablefuture-有一个任务失败-如何处理异常)
+
+### [在使用 CompletableFuture 的时候为什么要自定义线程池？](https://javaguide.cn/java/concurrent/java-concurrent-questions-03.html#⭐️在使用-completablefuture-的时候为什么要自定义线程池)
+
+## AQS
+
+AQS，全称是 **AbstractQueuedSynchronizer**，是 Java 并发包 `java.util.concurrent.locks` 下的一个抽象类。它是构建**锁和同步器的核心基础框架**，底层支撑了 ReentrantLock、Semaphore、CountDownLatch、ReadWriteLock 等多种并发工具。
+
+AQS 的核心思想是：**将同步状态的管理与线程排队逻辑分离**，并通过一个 **FIFO 双向队列**来管理获取锁失败的线程。
+
+它内部维护了一个 `int` 类型的变量，叫做**同步状态（state）**，用于表示资源的占用情况。比如：独占锁会将 state 为 0 表示未被占用，1 表示占用；共享锁可能用大于 0 的值来表示剩余许可。
+
+线程在尝试获取锁时，如果资源可用，AQS 会通过 `CAS` 操作尝试修改 state 值；如果失败，则会将当前线程封装成一个节点加入**等待队列（CLH 队列）**，然后阻塞挂起。
+
+一旦资源释放，AQS 会从队列中唤醒下一个等待线程，重新尝试获取锁，从而实现公平或非公平的线程调度。
+
+AQS 提供了两种模式：**独占模式（Exclusive）** 和 **共享模式（Shared）**。独占模式下，同一时刻只能有一个线程持有资源，比如 ReentrantLock；共享模式下，允许多个线程共享资源，比如 Semaphore 和 ReadWriteLock 的读锁。
+
+### 原理
+
+AQS 的核心原理可以总结为三点：**同步状态管理、CLH 队列维护、线程阻塞与唤醒机制**。
+
+首先，AQS 通过一个 `volatile int state` 变量来表示共享资源的状态。线程要想获取锁，必须先尝试修改这个 state。修改通常是通过 **CAS（Compare-And-Swap）原子操作**完成的，确保在并发场景下能安全地竞争资源。
+
+如果线程获取 state 成功，就说明资源可用，它可以继续执行；如果失败，说明资源当前不可用，线程就会被封装成一个 `Node` 节点，加入到 AQS 内部维护的一个 **双向 FIFO 队列**中，这个队列本质上是一个变种的 CLH 队列（即链式等待队列）。
+
+排队的线程并不会自旋消耗 CPU，而是通过调用 `LockSupport.park()` 方法被**挂起阻塞**，直到前驱节点释放资源并显式调用 `unpark()` 唤醒它。
+
+当锁释放时，线程会调用 `release()` 方法，AQS 会将 state 设置为可用状态，并从等待队列中唤醒下一个节点所代表的线程。唤醒后，它再重新尝试获取锁，直到成功为止。
+
+AQS 支持两种资源获取模式：
+
+- **独占模式（Exclusive）**：同一时刻只有一个线程能获取资源，典型代表是 `ReentrantLock`。
+- **共享模式（Shared）**：多个线程可以同时获取资源，如 `Semaphore` 和读写锁中的读锁。
+
+这两种模式下，AQS 会调用不同的模板方法来处理，比如 `tryAcquire`/`tryRelease` 用于独占模式，`tryAcquireShared`/`tryReleaseShared` 用于共享模式。开发者只需要继承 AQS，并实现这些关键方法，就能构建出各种自定义同步工具。
+
+总结一下，AQS 的原理是：
+ 通过一个原子变量控制同步状态，失败则排队等待；队列基于 CLH 实现，线程通过 park 阻塞、unpark 唤醒；并提供独占与共享两种访问控制模式，支撑了大多数 JUC 锁与同步器的实现。
+
+### [AQS](https://javaguide.cn/java/concurrent/java-concurrent-questions-03.html#aqs)
+
+## [线程池最佳实践](https://javaguide.cn/java/concurrent/java-thread-pool-best-practices.html)
+
+## [常见并发容器总结](https://javaguide.cn/java/concurrent/java-concurrent-collections.html)
+
+## Atomic 原子类
+
+[Atomic 原子类总结 | JavaGuide](https://javaguide.cn/java/concurrent/atomic-classes.html)
+
+## 虚拟线程
+
+[虚拟线程常见问题总结 | JavaGuide](https://javaguide.cn/java/concurrent/virtual-thread.html)
 
 
 
