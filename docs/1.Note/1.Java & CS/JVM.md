@@ -589,11 +589,123 @@ G1 收集器的运作大致分为以下几个**步骤**：
 
 # JVM参数
 
+## 堆相关
 
+### 设置堆内存大小 (-Xms 和 -Xmx)
 
-# JVM调优
+根据应用程序的实际需求设置初始和最大堆内存大小，是性能调优中最常见的实践之一。**推荐显式设置这两个参数，并且通常建议将它们设置为相同的值**，以避免运行时堆内存的动态调整带来的性能开销。
 
+```java
+-Xms<heap size>[unit]  # 设置 JVM 初始堆大小
+-Xmx<heap size>[unit]  # 设置 JVM 最大堆大小
+```
 
+- `<heap size>`: 指定内存的具体数值。
+- `[unit]`: 指定内存的单位，如 g (GB)、m (MB)、k (KB)。
+
+### 设置新生代内存大小 (Young Generation)
+
+在堆总可用内存配置完成之后，第二大影响因素是为 `Young Generation` 在堆内存所占的比例。默认情况下，YG 的最小大小为 **1310 MB**，最大大小为 **无限制**。
+
+### 设置永久代/元空间大小 (PermGen/Metaspace)
+
+从 Java 8 开始，如果我们没有指定 Metaspace 的大小，随着更多类的创建，虚拟机会耗尽所有可用的系统内存（永久代并不会出现这种情况）。
+
+## 垃圾收集相关
+
+### 选择垃圾回收器
+
+JVM 提供了多种 GC 实现，适用于不同的场景：
+
+- **Serial GC (串行垃圾收集器):** 单线程执行 GC，适用于客户端模式或单核 CPU 环境。参数：`-XX:+UseSerialGC`。
+- **Parallel GC (并行垃圾收集器):** 多线程执行新生代 GC (Minor GC)，以及可选的多线程执行老年代 GC (Full GC，通过 `-XX:+UseParallelOldGC`)。关注吞吐量，是 JDK 8 的默认 GC。参数：`-XX:+UseParallelGC`。
+- **CMS GC (Concurrent Mark Sweep 并发标记清除收集器):** 以获取最短回收停顿时间为目标，大部分 GC 阶段可与用户线程并发执行。适用于对响应时间要求高的应用。在 JDK 9 中被标记为弃用，JDK 14 中被移除。参数：`-XX:+UseConcMarkSweepGC`。
+- **G1 GC (Garbage-First Garbage Collector):** JDK 9 及之后版本的默认 GC。将堆划分为多个 Region，兼顾吞吐量和停顿时间，试图在可预测的停顿时间内完成 GC。参数：`-XX:+UseG1GC`。
+- **ZGC:** 更新的低延迟 GC，目标是将 GC 停顿时间控制在几毫秒甚至亚毫秒级别，需要较新版本的 JDK 支持。参数（具体参数可能随版本变化）：`-XX:+UseZGC`、`-XX:+UseShenandoahGC`。
+
+### GC日志
+
+在生产环境或进行 GC 问题排查时，**务必开启 GC 日志记录**。
+
+```java
+# --- 推荐的基础配置 ---
+# 打印详细 GC 信息
+-XX:+PrintGCDetails
+# 打印 GC 发生的时间戳 (相对于 JVM 启动时间)
+# -XX:+PrintGCTimeStamps
+# 打印 GC 发生的日期和时间 (更常用)
+-XX:+PrintGCDateStamps
+# 指定 GC 日志文件的输出路径，%t 可以输出日期时间戳
+-Xloggc:/path/to/gc-%t.log
+
+# --- 推荐的进阶配置 ---
+# 打印对象年龄分布 (有助于判断对象晋升老年代的情况)
+-XX:+PrintTenuringDistribution
+# 在 GC 前后打印堆信息
+-XX:+PrintHeapAtGC
+# 打印各种类型引用 (强/软/弱/虚) 的处理信息
+-XX:+PrintReferenceGC
+# 打印应用暂停时间 (Stop-The-World, STW)
+-XX:+PrintGCApplicationStoppedTime
+
+# --- GC 日志文件滚动配置 ---
+# 启用 GC 日志文件滚动
+-XX:+UseGCLogFileRotation
+# 设置滚动日志文件的数量 (例如，保留最近 14 个)
+-XX:NumberOfGCLogFiles=14
+# 设置每个日志文件的最大大小 (例如，50MB)
+-XX:GCLogFileSize=50M
+
+# --- 可选的辅助诊断配置 ---
+# 打印安全点 (Safepoint) 统计信息 (有助于分析 STW 原因)
+# -XX:+PrintSafepointStatistics
+# -XX:PrintSafepointStatisticsCount=1
+```
+
+## 处理OOM
+
+ JVM 提供了一些参数，这些参数将堆内存转储到一个物理文件中，以后可以用来查找泄漏:
+
+```java
+# 在发生 OOM 时生成堆转储文件
+-XX:+HeapDumpOnOutOfMemoryError
+
+# 指定堆转储文件的输出路径。<pid> 会被替换为进程 ID
+-XX:HeapDumpPath=/path/to/heapdump/java_pid<pid>.hprof
+# 示例：-XX:HeapDumpPath=/data/dumps/
+
+# (可选) 在发生 OOM 时执行指定的命令或脚本
+# 例如，发送告警通知或尝试重启服务（需谨慎使用）
+# -XX:OnOutOfMemoryError="<command> <args>"
+# 示例：-XX:OnOutOfMemoryError="sh /path/to/notify.sh"
+
+# (可选) 启用 GC 开销限制检查
+# 如果 GC 时间占总时间比例过高（默认 98%）且回收效果甚微（默认小于 2% 堆内存），
+# 会提前抛出 OOM，防止应用长时间卡死在 GC 中。
+-XX:+UseGCOverheadLimit
+```
+
+## 其他
+
+`-server`: 明确启用 Server 模式的 HotSpot VM。（在 64 位 JVM 上通常是默认值）。
+
+`-XX:+UseStringDeduplication`: (JDK 8u20+) 尝试识别并共享底层 `char[]` 数组相同的 String 对象，以减少内存占用。适用于存在大量重复字符串的场景。
+
+`-XX:SurvivorRatio=<ratio>`: 设置 Eden 区与单个 Survivor 区的大小比例。例如 `-XX:SurvivorRatio=8` 表示 Eden:Survivor = 8:1。
+
+`-XX:MaxTenuringThreshold=<threshold>`: 设置对象从新生代晋升到老年代的最大年龄阈值（对象每经历一次 Minor GC 且存活，年龄加 1）。默认值通常是 15。
+
+`-XX:+DisableExplicitGC`: 禁止代码中显式调用 `System.gc()`。推荐开启，避免人为触发不必要的 Full GC。
+
+`-XX:+UseLargePages`: (需要操作系统支持) 尝试使用大内存页（如 2MB 而非 4KB），可能提升内存密集型应用的性能，但需谨慎测试。
+
+-`XX:MinHeapFreeRatio=<percent> / -XX:MaxHeapFreeRatio=<percent>`: 控制 GC 后堆内存保持空闲的最小/最大百分比，用于动态调整堆大小（如果 `-Xms` 和 `-Xmx` 不相等）。通常建议将 `-Xms` 和 `-Xmx` 设为一致，避免调整开销。
+
+# JVM监控与调优
+
+[JDK监控和故障处理工具总结 | JavaGuide](https://javaguide.cn/java/jvm/jdk-monitoring-and-troubleshooting-tools.html)
+
+[JVM线上问题排查和性能调优案例 | JavaGuide](https://javaguide.cn/java/jvm/jvm-in-action.html)
 
 # 其他
 
