@@ -3,6 +3,51 @@ title : Spring Framework
 order : 1
 ---
 
+# Spring框架
+
+Spring 是一个开源的、轻量级的**Java 企业级开发框架**，主要用于简化 Java 应用的开发过程，尤其是在企业级项目中对**对象创建、依赖管理、事务控制、AOP（面向切面编程）**等方面提供了强大支持。
+
+Spring 的核心是 **IoC（控制反转）** 和 **AOP（面向切面编程）** 两大思想。IoC 通过依赖注入（DI）管理对象生命周期，解耦业务组件，提高代码的可维护性；AOP 则用于横切关注点的处理，比如日志、权限、事务控制等，避免重复代码。
+
+除了核心功能，Spring 还提供了大量子模块，支持 Web 开发（Spring MVC）、数据访问（Spring JDBC、Spring Data）、事务管理、安全控制（Spring Security）等。配合 Spring Boot，开发效率和部署体验进一步提升。
+
+---
+
+## 核心模块
+
+Spring 框架本身是一个模块化体系，按照功能主要包含以下几个核心模块：
+
+1. **Core Container（核心容器）**：包括
+   - **Core** 和 **Beans**：提供 IoC 和依赖注入的基础功能。
+   - **Context**：构建在 Core 和 Beans 之上，提供类似于应用上下文的功能。
+   - **Expression Language（SpEL）**：支持在配置中使用表达式语法。
+2. **AOP（面向切面编程）模块**：支持 AOP 的实现，用于解耦横切逻辑，如日志、权限控制、事务等。
+3. **Data Access / Integration（数据访问与集成）模块**：
+   - **JDBC**：简化 JDBC 编程。
+   - **ORM**：整合 Hibernate、JPA、MyBatis 等 ORM 框架。
+   - **JMS**：支持消息中间件的集成。
+   - **Transactions**：统一的声明式事务管理。
+4. **Web 模块**：
+   - **Web**：提供基础的 Web 开发功能。
+   - **Web MVC**：实现了 MVC 架构的 Spring Web 框架，是开发 Web 应用的核心模块。
+5. **Test 模块**：提供对 JUnit、TestNG 的集成，支持对 Spring 组件进行单元测试和集成测试。
+
+---
+
+## Spring vs Spring MVC vs Spring Boot 
+
+**Spring Framework** 是基础，提供了 IoC（控制反转）和 AOP（面向切面编程）等核心功能，用于管理对象的生命周期和解耦业务逻辑，是整个 Spring 生态的根基。
+
+**Spring MVC** 是 Spring 的一个子模块，用于构建基于 Servlet 的 Web 应用。它实现了 MVC 架构模式，提供了请求分发、参数绑定、视图解析等功能，专注于 Web 层开发。
+
+**Spring Boot** 是对 Spring 全家桶的进一步封装，目的是简化 Spring 应用的配置和部署。它提供了自动配置、内嵌服务器、开箱即用的依赖管理，让开发者能够更快地搭建和运行 Spring 应用，无需编写大量 XML 或繁杂配置。
+
+# IOC
+
+
+
+# 其他
+
 IoC/AOP、Spring MVC、事务管理
 
 spring 框架有四大核心特性：
