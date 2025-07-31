@@ -478,6 +478,8 @@ Java 提供了四种内置的拒绝策略。第一种是默认的策略，叫做
 
 # 关键字等
 
+[Java基础面试题   volatile和sychronized如何实现单例模式 | 小林coding](https://xiaolincoding.com/interview/java.html#volatile和sychronized如何实现单例模式)
+
 ## volatile
 
 `volatile` 是 Java 中一种轻量级的内存同步机制，用于修饰变量，确保变量的**可见性**和**禁止指令重排序**。然而，它并不保证操作的**原子性**。
