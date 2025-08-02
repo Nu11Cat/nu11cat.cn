@@ -340,6 +340,8 @@ get 操作是无锁的，通过 volatile 保证可见性，读取效率非常高
 
 从实际开发角度来说，`Hashtable` 已经属于过时的类，几乎不会在新项目中使用了；而 `ConcurrentHashMap` 是目前在并发环境下使用最广泛的线程安全 Map 实现。
 
+---
+
 ## ConcurrentSkipListMap
 
 `ConcurrentSkipListMap` 是 Java 并发包中提供的一种线程安全的、可排序的 Map 实现，底层基于跳表（Skip List）结构。它可以保证键值对按照 key 的自然顺序或自定义 Comparator 排序，并支持高并发读写操作。
