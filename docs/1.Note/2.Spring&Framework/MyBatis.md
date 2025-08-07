@@ -1,5 +1,5 @@
 ---
-title : ORM
+title : MyBatis
 order : 4
 ---
 
