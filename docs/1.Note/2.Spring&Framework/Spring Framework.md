@@ -138,10 +138,10 @@ Spring Bean 是指由 **Spring IoC 容器管理的对象**。在 Spring 中，�
 
 Spring 中 Bean 的作用域通常有下面几种：
 
-- **singleton** : IoC 容器中只有唯一的 bean 实例。Spring 中的 bean 默认都是单例的，是对单例设计模式的应用。
-- **prototype** : 每次获取都会创建一个新的 bean 实例。也就是说，连续 `getBean()` 两次，得到的是不同的 Bean 实例。
-- **request** （仅 Web 应用可用）: 每一次 HTTP 请求都会产生一个新的 bean（请求 bean），该 bean 仅在当前 HTTP request 内有效。
-- **session** （仅 Web 应用可用） : 每一次来自新 session 的 HTTP 请求都会产生一个新的 bean（会话 bean），该 bean 仅在当前 HTTP session 内有效。
+- **singleton（单例）**: IoC 容器中只有唯一的 bean 实例。Spring 中的 bean 默认都是单例的，是对单例设计模式的应用。
+- **prototype（原型）**: 每次获取都会创建一个新的 bean 实例。也就是说，连续 `getBean()` 两次，得到的是不同的 Bean 实例。
+- **request（请求）** （仅 Web 应用可用）: 每一次 HTTP 请求都会产生一个新的 bean（请求 bean），该 bean 仅在当前 HTTP request 内有效。
+- **session（会话）** （仅 Web 应用可用） : 每一次来自新 session 的 HTTP 请求都会产生一个新的 bean（会话 bean），该 bean 仅在当前 HTTP session 内有效。
 - **application/global-session** （仅 Web 应用可用）：每个 Web 应用在启动时创建一个 Bean（应用 Bean），该 bean 仅在当前应用启动时间内有效。
 - **websocket** （仅 Web 应用可用）：每一次 WebSocket 会话产生一个新的 bean。
 
@@ -155,11 +155,35 @@ Spring 本身**并不保证 Bean 是线程安全的**。默认情况下，Spring
 
 ---
 
-对于有状态单例 Bean 的线程安全问题，常见的三种解决办法是：
+对于有状态单例 Bean 的线程安全问题，**常见的三种解决办法**是：
 
 1. **避免可变成员变量**: 尽量设计 Bean 为无状态。
 2. **使用`ThreadLocal`**: 将可变成员变量保存在 `ThreadLocal` 中，确保线程独立。
 3. **使用同步机制**: 利用 `synchronized` 或 `ReentrantLock` 来进行同步控制，确保线程安全。
+
+---
+
+### Bean是否单例
+
+Spring 中的 Bean 默认都是单例的。
+
+就是说，每个Bean的实例只会被创建一次，并且会被存储在Spring容器的缓存中，以便在后续的请求中重复使用。这种单例模式可以提高应用程序的性能和内存效率。
+
+但是，Spring也支持将Bean设置为多例模式，即每次请求都会创建一个新的Bean实例。要将Bean设置为多例模式，可以在Bean定义中通过设置scope属性为"prototype"来实现
+
+**一、单例（`singleton`，默认）**
+
+- **含义**：整个 Spring 容器中只创建一个 Bean 实例。
+- **创建时机**：容器启动时立即创建。
+- **生命周期**：从容器启动到销毁，始终是同一个对象。
+- **使用场景**：大多数无状态的组件，比如 DAO、Service、工具类等。
+
+**二、非单例（`prototype`）**
+
+- **含义**：每次调用 `getBean()` 都会创建一个新的实例。
+- **创建时机**：调用时才创建，不是容器启动时。
+- **生命周期**：Spring 创建后不再管理生命周期，销毁需开发者自行处理。
+- **使用场景**：有状态的组件，比如带有用户上下文信息的对象。
 
 ---
 
@@ -297,7 +321,14 @@ Spring AOP 正是利用这两种机制，在运行时为目标对象生成代理
 
 ## AOP实现注解
 
-
+- @Aspect：用于定义切面，标注在切面类上。
+- @Pointcut：定义切点，标注在方法上，用于指定连接点。
+- @Before：在方法执行之前执行通知。
+- @After：在方法执行之后执行通知。
+- @Around：在方法执行前后都执行通知。
+- @AfterReturning：在方法执行后返回结果后执行通知。
+- @AfterThrowing：在方法抛出异常后执行通知。
+- @Advice：通用的通知类型，可以替代@Before、@After等。
 
 ---
 
@@ -312,6 +343,10 @@ Spring AOP 正是利用这两种机制，在运行时为目标对象生成代理
 # Spring MVC
 
 MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。
+
+- 视图(view)： 为用户提供使用界面，与用户直接进行交互。
+- 模型(model)： 代表一个存取数据的对象或 JAVA POJO（Plain Old Java Object，简单java对象）。它也可以带有逻辑，主要用于承载数据，并对用户提交请求进行计算的模块。模型分为两类，一类称为数据承载 Bean，一类称为业务处理Bean。所谓数据承载 Bean 是指实体类（如：User类），专门为用户承载业务数据的；而业务处理 Bean 则是指Service 或 Dao 对象， 专门用于处理用户提交请求的。
+- 控制器(controller)： 用于将用户请求转发给相应的 Model 进行处理，并根据 Model 的计算结果向用户提供相应响应。它使视图与模型分离。
 
 ## 核心组件
 
@@ -360,26 +395,63 @@ Spring MVC 是基于 MVC（Model-View-Controller）架构设计的 Web 框架，
 
 循环依赖是指 Bean 对象循环引用，是两个或多个 Bean 之间相互持有对方的引用。
 
+循环依赖问题在Spring中主要有三种情况：
+
+- 第一种：通过构造方法进行依赖注入时产生的循环依赖问题。
+- 第二种：通过setter方法进行依赖注入且是在多例（原型）模式下产生的循环依赖问题。
+- 第三种：通过setter方法进行依赖注入且是在单例模式下产生的循环依赖问题。
+
+只有【第三种方式】的循环依赖问题被 Spring 解决了，其他两种方式在遇到循环依赖问题时，Spring都会产生异常。
+
 ## 三级缓存
 
-Spring 框架通过使用三级缓存来解决这个问题：
+Spring 在`DefaultSingletonBeanRegistry`类中维护了三个重要的缓存 (Map)，称为“三级缓存”：
 
 Spring 的三级缓存包括：
 
-1. **一级缓存（singletonObjects）**：存放最终形态的 Bean（已经实例化、属性填充、初始化），单例池，为“Spring 的单例属性”⽽⽣。一般情况我们获取 Bean 都是从这里获取的，但是并不是所有的 Bean 都在单例池里面，例如原型 Bean 就不在里面。
-2. **二级缓存（earlySingletonObjects）**：存放过渡 Bean（半成品，尚未属性填充），也就是三级缓存中`ObjectFactory`产生的对象，与三级缓存配合使用的，可以防止 AOP 的情况下，每次调用`ObjectFactory#getObject()`都是会产生新的代理对象的。
-3. **三级缓存（singletonFactories）**：存放`ObjectFactory`，`ObjectFactory`的`getObject()`方法（最终调用的是`getEarlyBeanReference()`方法）可以生成原始 Bean 对象或者代理对象（如果 Bean 被 AOP 切面代理）。三级缓存只会对单例 Bean 生效。
+1. **一级缓存（singletonObjects）**：存放的是完全初始化好的、可用的 Bean 实例，`getBean()`方法最终返回的就是这里面的 Bean。此时 Bean 已实例化、属性已填充、初始化方法已执行、AOP 代理（如果需要）也已生成。
+2. **二级缓存（earlySingletonObjects）**：存放的是提前暴露的 Bean 的原始对象引用 或 早期代理对象引用，专门用来处理循环依赖。当一个 Bean 还在创建过程中（尚未完成属性填充和初始化），但它的引用需要被注入到另一个 Bean 时，就暂时放在这里。此时 Bean 已实例化（调用了构造函数），但属性尚未填充，初始化方法尚未执行，它可能是一个原始对象，也可能是一个为了解决 AOP 代理问题而提前生成的代理对象。
+3. **三级缓存（singletonFactories）**： 存放的是 Bean 的 `ObjectFactory`工厂对象。，这是解决循环依赖和 AOP 代理协同工作的关键。当 Bean 被实例化后（刚调完构造函数），Spring 会创建一个 `ObjectFactory` 并将其放入三级缓存。这个工厂的 `getObject() `方法负责返回该 Bean 的早期引用（可能是原始对象，也可能是提前生成的代理对象），当检测到循环依赖需要注入一个尚未完全初始化的 Bean 时，就会调用这个工厂来获取早期引用。
 
 ------
 
-整个解决循环依赖的**流程**如下：
+## 解决流程
 
-- 当 Spring 创建 A 之后，发现 A 依赖了 B ，又去创建 B，B 依赖了 A ，又去创建 A；
-- 在 B 创建 A 的时候，那么此时 A 就发生了循环依赖，由于 A 此时还没有初始化完成，因此在 **一二级缓存** 中肯定没有 A；
-- 那么此时就去三级缓存中调用 `getObject()` 方法去获取 A 的 **前期暴露的对象** ，也就是调用上边加入的 `getEarlyBeanReference()` 方法，生成一个 A 的 **前期暴露对象**；
-- 然后就将这个 `ObjectFactory` 从三级缓存中移除，并且将前期暴露对象放入到二级缓存中，那么 B 就将这个前期暴露对象注入到依赖，来支持循环依赖。
+Spring 通过 **三级缓存** 和 **提前暴露未完全初始化的对象引用** 的机制来解决单例作用域 Bean 的 sette注入方式的循环依赖问题。
 
-**只用两级缓存够吗？** 在没有 AOP 的情况下，确实可以只使用一级和二级缓存来解决循环依赖问题。但是，当涉及到 AOP 时，三级缓存就显得非常重要了，因为它确保了即使在 Bean 的创建过程中有多次对早期引用的请求，也始终只返回同一个代理对象，从而避免了同一个 Bean 有多个代理对象的问题。
+此方案仅适用于Setter/Field注入的单例Bean。
+
+假设存在两个相互依赖的单例`Bean`：`BeanA` 依赖 `BeanB`，同时 `BeanB` 也依赖 `BeanA`。当Spring容器启动时，它会按照以下流程处理：
+
+**第一步：创建`BeanA`的实例并提前暴露工厂。**Spring首先调用`BeanA`的构造函数进行实例化，此时得到一个原始对象（尚未填充属性）。紧接着，Spring会将一个特殊的`ObjectFactory`工厂对象存入第三级缓存。这个工厂的使命是：当其他`Bean`需要引用`BeanA`时，它能动态返回当前这个半成品的`BeanA`（可能是原始对象，也可能是为应对AOP而提前生成的代理对象）。此时BeanA的状态是"已实例化但未初始化"，像一座刚搭好钢筋骨架的大楼。
+
+**第二步：填充`BeanA`的属性时触发`BeanB`的创建。**Spring开始为`BeanA`注入属性，发现它依赖`BeanB`。于是容器转向创建`BeanB`，同样先调用其构造函数实例化，并将`BeanB`对应的`ObjectFactory`工厂存入三级缓存。至此，三级缓存中同时存在`BeanA`和`BeanB`的工厂，它们都代表未完成初始化的半成品。
+
+**第三步：`BeanB`属性注入时发现循环依赖。**当Spring试图填充`BeanB`的属性时，检测到它需要注入`BeanA`。此时容器启动依赖查找：
+
+- 在一级缓存（存放完整Bean）中未找到`BeanA`
+- 在二级缓存（存放已暴露的早期引用）中同样未命中
+- 最终在三级缓存中定位到`BeanA`的工厂。
+
+Spring立即调用该工厂的`getObject()`方法。这个方法会执行关键决策：若`BeanA`需要AOP代理，则动态生成代理对象（即使`BeanA`还未初始化）；若无需代理，则直接返回原始对象。得到的这个早期引用（可能是代理）被放入二级缓存，同时从三级缓存清理工厂条目。最后，Spring将这个早期引用注入到`BeanB`的属性中。至此，`BeanB`成功持有`BeanA`的引用——尽管`BeanA`此时仍是个半成品。
+
+**第四步：完成`BeanB`的生命周期。**`BeanB`获得所有依赖后，Spring执行其初始化方法（如`@PostConstruct`），将其转化为完整可用的Bean。随后，`BeanB`被提升至一级缓存（`singletonObjects`），二级和三级缓存中关于`BeanB`的临时条目均被清除。此时`BeanB`已准备就绪，可被其他对象使用。
+
+**第五步：回溯完成`BeanA`的构建。**随着`BeanB`创建完毕，流程回溯到最初中断的`BeanA`属性注入环节。Spring将已完备的`BeanB`实例注入`BeanA`，接着执行`BeanA`的初始化方法。这里有个精妙细节：若之前为`BeanA`生成过早期代理，Spring会直接复用二级缓存中的代理对象作为最终Bean，而非重复创建。最终，完全初始化的`BeanA`（可能是原始对象或代理）入驻一级缓存，其早期引用从二级缓存移除。至此循环闭环完成，两个Bean皆可用。
+
+---
+
+## 二级缓存？
+
+在没有 AOP 的情况下，确实可以只使用一级和二级缓存来解决循环依赖问题。
+
+spring 必须用三级缓存解决循环依赖，核心是为了**正确处理需要 AOP 代理的 Bean**。
+
+举个例子：假设 Bean A 依赖 B，B 又依赖 A，且 A 需要被动态代理（比如加了`@Transactional`）。如果只有二级缓存，当 B 创建时去注入 A，拿到的是 A 的原始对象。但 A 在后续初始化完成后才会生成代理对象，结果就是：B 拿着原始对象 A，而 Spring 容器里存的是代理对象 A —— 同一个 Bean 出现了两个不同实例，这直接违反了单例的核心约束。
+
+三级缓存中的 `ObjectFactory` 就是解决这个问题的关键。它不是直接缓存对象，而是存了一个能生产对象的工厂。当发生循环依赖时，调用这个工厂的 `getObject()` 方法，这时 Spring 会智能判断：如果这个 Bean 最终需要代理，就提前生成代理对象并放入二级缓存；如果不需要代理，就返回原始对象。这样一来，B 注入的 A 就是最终形态（可能是代理对象），后续 A 初始化完成后也不会再创建新代理，保证了对象全局唯一。
+
+简单说，三级缓存的本质是 “按需延迟生成正确引用” 。它既维持了 Bean 生命周期的完整性（正常流程在初始化后生成代理），又在循环依赖时特殊处理，避免逻辑矛盾。而二级缓存缺乏这种动态决策能力，因此无法替代三级缓存。
 
 ------
 
@@ -455,6 +527,22 @@ Spring 的三级缓存包括：
 
 **`TransactionDefinition.ISOLATION_SERIALIZABLE`** : 最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，**该级别可以防止脏读、不可重复读以及幻读**。但是这将严重影响程序的性能。通常情况下也不会用到该级别。
 
+---
+
+## 什么情况失效
+
+1，**未捕获异常**: 如果一个事务方法中发生了未捕获的异常，并且异常未被处理或传播到事务边界之外，那么事务会失效，所有的数据库操作会回滚。
+
+2，**非受检异常**: 默认情况下，Spring对非受检异常（RuntimeException或其子类）进行回滚处理，这意味着当事务方法中抛出这些异常时，事务会回滚。
+
+3，**事务传播属性设置不当**: 如果在多个事务之间存在事务嵌套，且事务传播属性配置不正确，可能导致事务失效。特别是在方法内部调用有 @Transactional 注解的方法时要特别注意。
+
+4，**多数据源的事务管理**: 如果在使用多数据源时，事务管理没有正确配置或者存在多个 @Transactional 注解时，可能会导致事务失效。
+
+5，**跨方法调用事务问题**: 如果一个事务方法内部调用另一个方法，而这个被调用的方法没有 @Transactional 注解，这种情况下外层事务可能会失效。
+
+6，**事务在非公开方法中失效**: 如果 @Transactional 注解标注在私有方法上或者非 public 方法上，事务也会失效。
+
 ------
 
 ## @Transactional
@@ -477,11 +565,25 @@ Spring 的三级缓存包括：
 
 [Spring 中的设计模式详解 | JavaGuide](https://javaguide.cn/system-design/framework/spring/spring-design-patterns-summary.html)
 
+**工厂设计模式**:  Spring使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。
+
+**代理设计模式** : Spring AOP 功能的实现。
+
+**单例设计模式** : Spring 中的 Bean 默认都是单例的。
+
+**模板方法模式** : Spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。
+
+**包装器设计模式** : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。
+
+**观察者模式** Spring 事件驱动模型就是观察者模式很经典的一个应用。
+
+**适配器模式** :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配Controller。
+
 ---
 
 # 其他
 
-### @Component vs @Bean 
+## @Component vs @Bean 
 
 `@Component` 注解作用于类，而`@Bean`注解作用于方法。
 
@@ -491,7 +593,7 @@ Spring 的三级缓存包括：
 
 ------
 
-### @Autowired vs @Resource 
+## @Autowired vs @Resource 
 
 `@Autowired` 是 Spring 提供的注解，`@Resource` 是 JDK 提供的注解。
 
@@ -503,23 +605,126 @@ Spring 的三级缓存包括：
 
 ------
 
+## IoC和AOP是如何使用反射的
+
+**IoC（控制反转）中的反射应用：**
+
+IoC 的核心是对象的创建和依赖注入交给容器管理，而不是开发者手动 new 对象。
+
+1. **对象创建：**
+    Spring 在读取配置或注解时，会通过反射使用 `Class.forName()` 加载类，再用 `Constructor.newInstance()` 创建对象实例。
+2. **属性注入：**
+    在依赖注入阶段，Spring 会通过反射调用 setter 方法或直接访问字段（通过 `Field.set()`）来完成 Bean 属性的赋值。
+3. **方法调用：**
+    如果使用了初始化方法、销毁方法，Spring 也会通过反射调用这些方法。
+
+------
+
+**AOP（面向切面编程）中的反射应用：**
+
+AOP 的核心是对目标方法进行“增强”，在方法执行前后插入横切逻辑。
+
+1. **代理创建：**
+   - 基于 **JDK 动态代理** 的方式，通过反射创建接口的代理类（`Proxy.newProxyInstance()`）。
+   - 如果目标类不是接口，Spring 使用 **CGLIB** 动态生成子类，反射也是底层依赖技术之一。
+2. **方法拦截与执行：**
+    Spring AOP 拦截到方法调用后，通过反射中的 `Method.invoke()` 调用原始方法，并在其前后织入增强逻辑（如日志、事务等）。
+
+---
+
+## spring扩展点
+
+常见的扩展点包括：
+
+**一、`BeanPostProcessor`**
+
+- **作用**：对 Bean 的实例化之后、属性注入完成之后进行增强，比如 AOP 就是通过它实现的。
+- **典型应用**：如 `@Autowired` 注入的处理器 `AutowiredAnnotationBeanPostProcessor`，以及 AOP 的 `AnnotationAwareAspectJAutoProxyCreator`。
+
+**二、`BeanFactoryPostProcessor`**
+
+- **作用**：在 Bean 实例化之前，对 Bean 的定义信息（BeanDefinition）进行修改。
+- **典型应用**：比如修改 Bean 的 scope、property 值等。
+
+**三、`ApplicationContextInitializer`**
+
+- **作用**：在 Spring 容器刷新之前（调用 `refresh()` 之前）进行配置。
+- **应用场景**：Spring Boot 用它来自定义环境变量或配置。
+
+**四、`ApplicationListener`**
+
+- **作用**：监听 Spring 框架发布的各种事件，如容器刷新完成、关闭等。
+- **典型应用**：如监听 `ContextRefreshedEvent` 完成一些初始化逻辑。
+
+**五、`SmartInitializingSingleton`**
+
+- **作用**：在所有单例 Bean 初始化完成后被调用一次，适用于系统启动后执行一次性逻辑。
+
+**六、`ImportSelector` / `ImportBeanDefinitionRegistrar`**
+
+- **作用**：用于向 Spring 容器中动态注册 Bean，配合 `@EnableXxx` 常用于自动配置。
+
+**七、`FactoryBean`**
+
+- **作用**：自定义一个工厂类来创建 Bean 实例，而不是让 Spring 直接反射实例化。
+
+**八、`@EventListener`**
+
+- **作用**：注解方式监听 Spring 事件，简化 `ApplicationListener` 的使用。
+
+---
+
+## spring常用注解
+
+#### 一、组件定义和扫描相关
+
+- `@Component`：通用组件注解，标注在类上，让 Spring 扫描并纳入容器管理。
+- `@Controller`：用于标注控制器类，通常与 Spring MVC 搭配使用。
+- `@Service`：用于标注业务逻辑组件，语义化更清晰。
+- `@Repository`：用于标注 DAO 层组件，同时支持异常转换。
+- `@Configuration`：用于标注配置类，相当于 XML 中的 `<beans>`。
+- `@ComponentScan`：用于指定包路径，让 Spring 扫描并注册组件。
+
+#### 二、依赖注入相关
+
+- `@Autowired`：按照类型注入 Bean，可用于字段、方法、构造器。
+- `@Qualifier`：结合 `@Autowired` 使用，指定注入 Bean 的名称。
+- `@Resource`：JDK 提供，默认按名称注入，也可以按类型。
+- `@Inject`：JDK 的标准注解，类似 `@Autowired`。
+- `@Value`：注入配置文件中的值或表达式。
+
+#### 三、生命周期与作用域
+
+- `@PostConstruct`：方法级注解，Bean 初始化后执行。
+- `@PreDestroy`：方法级注解，Bean 销毁前执行。
+- `@Scope`：指定 Bean 的作用域，如 singleton、prototype 等。
+
+#### 四、AOP 相关
+
+- `@Aspect`：定义一个切面类。
+- `@Before`、`@After`、`@Around`：定义切点逻辑。
+- `@Pointcut`：定义切点表达式。
+
+#### 五、配置相关
+
+- `@PropertySource`：加载外部配置文件。
+- `@EnableConfigurationProperties`：绑定配置类。
+- `@EnableAutoConfiguration`：Spring Boot 启动自动装配核心注解。
+- `@Import`：导入额外的配置类或组件。
+
+---
+
+### Handlermapping 和 handleradapter有了解吗？
+
+[Spring面试题 | 小林coding](https://xiaolincoding.com/interview/spring.html#handlermapping-和-handleradapter有了解吗)
+
+---
 
 
-IoC/AOP、Spring MVC、事务管理
 
-spring 框架有四大核心特性：
 
->Ioc，就是控制反转，是为了解决对象创建和依赖的高耦合的问题，是一种创建和获取对象的技术思想，是通过DI，也就是依赖注入实现的,传统开发我们需要new出新对象，而通过IOC我们通过ioc容器来实例化对象，大大降低对象之间的耦合。
->
->通过反射，依赖注入，设计模式（工厂模式），容器实现的，其中，反射就是java反射机制，允许Ioc容器在运行时加载类和创建对象实例以及调用对象方法；依赖注入是ioc的核心概念；容器作为工厂来实例化bean并管理他们的生命周期；IOC容器通常使用BeanFactory或者ApplicationContext来管理Bean，依赖关系的硬编码问题
 
->AOP，就是面向切面编程,允许开发者定义横切关注点，比如说事务管理，日志管理和权限控制。把那些与对象无关的，但是被业务代码共同调用的逻辑封装起来，减少重复代码，降低了模块间的耦合，有利于未来的扩展和维护。AOP是依赖于**动态代理技术**，动态代理是在运行时动态生成代理对象，而不是在编译时。它允许开发者在允许时指定要代理的接口和行为，从而实现在不修改源码的情况下增强或者拦截方法。
 
->事务处理，
 
->MVC，是指模型，视图，控制器，是一种软件设计典范，是一种把业务逻辑、数据、界面显示分离的方法组织代码。流程步骤就是用户通过view页面向服务端提出请求，controller控制器接收到解析，找到相应的model来处理，处理结果由controller返回给用户的view界面，界面渲染之后呈现。
 
->DI，依赖注入，为了解决依赖关系的硬编码问题和类依赖问题导致的高耦合，容器负责管理应用程序组件之间的依赖问题，是一种具体的编码技巧。不再通过new来在类的内部创建依赖类的对象，而是将对象的创建和依赖关系交给容器，类只需要声明自己依赖的对象，容器就会在运行的时候把依赖注入到类种，从而降低类与类的耦合度，实现方式有构造器注入、Setter方法注入，还有字段注入。
-
->自动装配：
 
