@@ -90,7 +90,7 @@ SpringCloud Alibaba使用**Alibaba Sentinel**实现系统保护，Sentinel不仅
 
 ------
 
-## **2. 服务降级（Service Degrade）**
+##  服务降级（Service Degrade）
 
 - **定义**：在系统压力过大、资源紧张或下游服务不可用时，主动**减少功能或返回默认结果**，保证核心业务正常运行。
 - **目的**：保护系统整体可用性，优先保证核心功能。
