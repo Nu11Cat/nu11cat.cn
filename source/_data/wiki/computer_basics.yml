@@ -1,0 +1,16 @@
+name: nu11 | 计算机基础
+title: 计算机基础
+icon: ../../images/OIP.jpg
+description: 所有技术的根基，包含操作系统、计算机网络、数据结构与算法等。
+tags: 计算机
+
+sort: 1
+
+
+base_dir: /computer_basics/
+tree:
+  '这只是个模板':
+    - index
+  '真的只是个模板':
+    - java
+  

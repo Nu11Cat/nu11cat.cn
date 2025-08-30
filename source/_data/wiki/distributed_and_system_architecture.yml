@@ -1,0 +1,17 @@
+name: nu11 | 分布式与系统架构
+title: 分布式与系统架构
+icon: ./../images/OIP (1).jpg
+coverpage: false # 关闭封面页
+description: 设计可扩展、高可用系统的方法论，包括微服务架构、分布式问题、系统设计等。
+tags: [分布式,架构]
+
+sort: 5
+
+
+base_dir: /distributed_and_system_architecture/
+tree:
+  '这只是个模板':
+    - index
+  '真的只是个模板':
+    - java
+  

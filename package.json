@@ -1,14 +1,27 @@
 {
-  "name": "my-docs",
-  "version": "1.0.0",
+  "name": "hexo-site",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
   },
-  "devDependencies": {
-  "@vuepress/bundler-vite": "2.0.0-rc.23",
-  "vuepress": "2.0.0-rc.23",
-  "vuepress-theme-hope": "2.0.0-rc.88",
-  "sass-embedded": "1.88.0"
-}
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "dependencies": {
+    "hexo": "^7.3.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-landscape": "^1.0.0",
+    "hexo-theme-stellar": "^1.33.1"
+  }
 }

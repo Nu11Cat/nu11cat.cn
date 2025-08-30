@@ -1,0 +1,16 @@
+name: nu11 | Java
+title: Java
+icon: ../../images/java.jpg
+coverpage: false # 关闭封面页
+description: 聚焦Java语言本身，Java语法、并发编程、IO、集合、JVM等。
+tags: Java
+
+sort: 2
+
+base_dir: /Java/
+tree:
+  '这只是个模板':
+    - index
+  '真的只是个模板':
+    - java
+  

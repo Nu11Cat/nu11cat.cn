@@ -1,0 +1,17 @@
+name: nu11 | 开发运维与工具链
+title: 开发运维与工具链
+icon: ./../images/OIP (2).jpg
+coverpage: false # 关闭封面页
+description: 高效、协同、自动化，包括版本控制、构建工具、容器化、集成部署、监控排查等。
+tags: [运维,工具]
+
+sort: 6
+
+
+base_dir: /devops_and_toolchain/
+tree:
+  '这只是个模板':
+    - index
+  '真的只是个模板':
+    - java
+  
