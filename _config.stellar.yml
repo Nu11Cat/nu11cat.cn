@@ -44,26 +44,6 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    # - id: post
-    #   theme: '#1BCDFC'
-    #   icon: solar:documents-bold-duotone
-    #   title: 博客
-    #   url: /
-    # - id: wiki
-    #   theme: '#3DC550'
-    #   icon: solar:notebook-bookmark-bold-duotone
-    #   title: 文档
-    #   url: /wiki/
-    # - id: explore
-    #   theme: '#FA6400'
-    #   icon: solar:planet-bold-duotone
-    #   title: 探索
-    #   url: /explore/
-    # - id: social
-    #   theme: '#F44336'
-    #   icon: solar:chat-square-like-bold-duotone
-    #   title: 社交
-    #   url: /friends/
     - id: home
       theme: '#4A90E2'
       icon: 
@@ -108,7 +88,7 @@ site_tree:
     base_dir: topic # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
   # 文档列表页配置
-  index_wiki:
+  index_wiki: 
     base_dir: wiki # 只影响自动生成的页面路径
     menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
     leftbar: related, recent # for wiki
@@ -753,3 +733,14 @@ api_host:
 system:
   # hexo 支持输出的链接格式众多，维护成本高，为了减少出错，统一成推荐的格式。
   override_pretty_urls: true
+
+
+
+
+  # 关闭所有可能的外部调用
+analytics:
+  enable: false
+
+baidu_analytics: false
+google_analytics: false
+busuanzi: false

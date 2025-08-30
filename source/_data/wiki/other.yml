@@ -1,0 +1,20 @@
+name: NullCat | 其他
+title: 其他
+icon: ../../images/touxiang.jpg
+coverpage: false # 关闭封面页
+description: 其他
+
+
+
+base_dir: /other/
+tree:
+  '首页​':
+    - index
+  '资源整理 / 工具推荐​':
+    - 1.资源整理
+    - 2.工具推荐​
+  '杂谈 / 随记':
+    - 3.杂谈随记
+  '学习 / 生活':
+    - 4.学习生活
+  
