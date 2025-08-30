@@ -4,7 +4,8 @@
 
 # Site
 title: Nu11Cat
-subtitle: ''
+avatar: source/images/touxiang.jpg  # 相对路径（需确保主题能解析）
+subtitle: Nu11Cat的个人网站
 description: ''
 keywords: Nu11Cat
 author: Nu11Cat

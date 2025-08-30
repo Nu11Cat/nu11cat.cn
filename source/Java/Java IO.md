@@ -1,6 +1,6 @@
 ---
+title : Java I/O
 wiki: java
-title: IO
 ---
 
 # IO基础

@@ -1,6 +1,6 @@
 ---
-wiki: computer_basics
 title : Linux & Shell
+wiki: computer_basics
 ---
 
 # Linux常用命令

@@ -1,5 +1,5 @@
 ---
-title: Java
+title : Java
 wiki: java
 ---
 

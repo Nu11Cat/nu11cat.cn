@@ -1,5 +1,8 @@
 ---
-title : 计算机基础index
+title : java首页
 wiki: java
 ---
 
+
+
+java首页
