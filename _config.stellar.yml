@@ -733,14 +733,3 @@ api_host:
 system:
   # hexo 支持输出的链接格式众多，维护成本高，为了减少出错，统一成推荐的格式。
   override_pretty_urls: true
-
-
-
-
-  # 关闭所有可能的外部调用
-analytics:
-  enable: false
-
-baidu_analytics: false
-google_analytics: false
-busuanzi: false

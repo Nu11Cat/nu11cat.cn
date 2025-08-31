@@ -1,5 +1,6 @@
 name: 仿12306售票系统
 title: 仿12306售票系统 # 在列表页会显示完整的专栏标题
 description: 仿12306售票系统：springboot+mysql+redis+rabbitmq+es等。
-order_by: -date # 默认是按发布日期倒序排序
+order_by: date # 默认是按发布日期倒序排序
+
 icon: ../../images/qv69q1tr.png
