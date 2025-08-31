@@ -1,6 +1,4 @@
 ---
-wiki: other
-menu_id: other
 title: 其他
 ---
 

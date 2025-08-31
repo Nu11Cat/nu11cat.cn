@@ -47,18 +47,18 @@ menubar:
     - id: home
       theme: '#4A90E2'
       icon: 
-      title: 首页
+      title: 导航
       url: /home/
     - id: wiki
       theme: '#9B59B6'
       icon: 
       title: 笔记
       url: /wiki/
-    - id: projects
+    - id: topic
       theme: '#FF7E5F'
       icon: 
-      title: 实战
-      url: /projects/
+      title: 专栏
+      url: /topic/
     - id: other
       theme: '#2ECC71'
       icon: 
