@@ -1,0 +1,17 @@
+name: nu11 | 数据持久化与存储
+title: 数据持久化与存储
+icon: ../../images/mysql.jpg
+coverpage: false # 关闭封面页
+description: 专注于数据的存取和管理，包括关系型数据库、NoSQL数据库、消息队列、搜索引擎等。
+tags: [数据库,持久化,存储]
+
+sort: 3
+
+
+base_dir: /data_persistence_and_storage/
+tree:
+  '这只是个模板':
+    - index
+  '真的只是个模板':
+    - java
+  

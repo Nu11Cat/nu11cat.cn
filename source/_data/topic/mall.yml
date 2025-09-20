@@ -1,0 +1,5 @@
+name: 电商秒杀系统
+title: 电商秒杀系统 # 在列表页会显示完整的专栏标题
+description: 电商秒杀系统描述
+order_by: date # 默认是按发布日期倒序排序
+icon: ../../images/OIP.jpg
