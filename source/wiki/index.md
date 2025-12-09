@@ -1,5 +1,6 @@
 ---
-title: 关于
+menu_id: wiki
+title: 博客index
 tags: []
 categories: []
 poster:
@@ -26,6 +27,4 @@ rightbar:
 h1:
 type:
 ---
-
-关于本站
 

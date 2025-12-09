@@ -32,8 +32,8 @@ structured_data:
 # 左上角显示的 logo 区域，包含图标、大标题、副标题
 logo:
   avatar: '[/images/touxiang.jpg](/about/)' # you can set avatar link in _config.yml or '[https://xxx.png](/about/)'
-  title: '[{config.title}](/about/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
-  subtitle: '吾尝终日而思，不如须臾之所学 | 吾尝跂而望矣，不如登高之博见' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
+  title: '[{config.title}](/)' # you can set html tag like: '[<img no-lazy height="32px" src="xxx"/>](/)'
+  subtitle: '{config.subtitle}' # '文字1 | 文字2' (鼠标放上去会切换到文字2)
 
 # 侧边栏主功能导航菜单
 menubar:
@@ -44,27 +44,26 @@ menubar:
     # icon: 支持 svg/img 标签，可以定义在 icons.yml 文件中，也支持外部图片的 URL
     # title: 标题
     # url: 点击跳转到哪，支持相对路径和绝对路径
-    - id: home
-      theme: '#4A90E2'
-      icon: 
-      title: 导航
-      url: /home/
-    - id: wiki
-      theme: '#9B59B6'
-      icon: 
-      title: 笔记
-      url: /wiki/
-    - id: topic
-      theme: '#FF7E5F'
-      icon: 
-      title: 专栏
-      url: /topic/
-    - id: other
-      theme: '#2ECC71'
-      icon: 
-      title: 其他
-      url: /other/
-
+     - id: home
+       theme: '#1BCDFC'
+       icon: #solar:planet-bold-duotone
+       title: 主页
+       url: /home/
+     - id: post
+       theme: '#3DC550'
+       icon: #solar:documents-bold-duotone
+       title: 博客
+       url: /archives/
+     - id: wiki
+       theme: '#FA6400'
+       icon: #solar:notebook-bookmark-bold-duotone
+       title: WIKI
+       url: /wiki/
+     - id: other
+       theme: '#F44336'
+       icon: #solar:chat-square-like-bold-duotone
+       title: 其他
+       url: /other/
 
 
 ######## Main ########
@@ -88,7 +87,7 @@ site_tree:
     base_dir: topic # 只影响自动生成的页面路径
     menu_id: post # 未在 front-matter 中指定 menu_id 时，layout 为 topic 的页面默认使用这里配置的 menu_id
   # 文档列表页配置
-  index_wiki: 
+  index_wiki:
     base_dir: wiki # 只影响自动生成的页面路径
     menu_id: wiki # 未在 front-matter 中指定 menu_id 时，layout 为 wiki 的页面默认使用这里配置的 menu_id
     leftbar: related, recent # for wiki
@@ -200,7 +199,7 @@ article:
   # npm i hexo-related-popular-posts
   related_posts:
     enable: true
-    title: 您可能感兴趣的文章
+    title: 更多相关文章推荐
     max_count: 5
 
 search:
@@ -331,30 +330,18 @@ comments:
 ######## Footer ########
 footer:
   social:
-    # github:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-    #   url: /
-    # music:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
-    #   url: /
-    # unsplash:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
-    #   url: /
-    # comments:
-    #   icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
-    #   url: /about/#comments
-    github:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
-      url: /
-    music:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
-      url: /
-    unsplash:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
-      url: /
-    comments:
-      icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
-      url: /about/#comments
+     github:
+       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/08a41b181ce68.svg"/>'
+       url: https://github.com/Nu11Cat/nu11cat.cn
+     music:
+       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3845874.svg"/>'
+       url: /
+     unsplash:
+       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/3616429.svg"/>'
+       url: /
+     comments:
+       icon: '<img src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/>'
+       url: /about/#comments
   sitemap:
     # - title: 博客
     #   items:
@@ -601,8 +588,8 @@ plugins:
   katex:
     enable: #true # hexo-renderer-markdown-it-plus 默认开启 katex，此选项仅用于引入样式
     inject: |
-      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.16/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
-  
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.23/dist/katex.min.css" integrity="sha384-//SZkxyB7axjCAopkAL1E1rve+ZSPKapD89Lo/lLhcsXR+zOYl5z6zJZEFXil+q0" crossorigin="anonymous">
+
   # MathJax
   # 需在Markdown文件开头加入mathjax: true
   # 推荐使用Pandoc: npm uninstall hexo-renderer-marked --save & npm install hexo-renderer-pandoc --save
@@ -683,14 +670,13 @@ style:
     error: 加载失败，请稍后重试。
   gradient: # https://webgradients.com/
     start: 'linear-gradient(to right, hsl(215, 95%, 64%), hsl(195, 95%, 60%), hsl(165, 95%, 56%), hsl(165, 95%, 56%), hsl(195 95% 60%), hsl(215, 95%, 64%))'
-    
   leftbar:
     # 可以设置：纯色/渐变色/图片作为背景
     background-color: var(--card) # var(--block)
     background-image: url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.13/image/sidebar-bg1@small.jpg)
-    blur-px: 100px
+    blur-px: 150px
     blur-bg: var(--bg-a60)
-    background-opacity: 1
+    background-opacity: 0.8
   paginator:
     prev: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/f049bbd4e88ec.svg
     next: https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/arrow/064b95430caf4.svg

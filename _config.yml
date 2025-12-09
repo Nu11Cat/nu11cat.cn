@@ -4,10 +4,10 @@
 
 # Site
 title: Nu11Cat
-avatar: source/images/touxiang.jpg  # 相对路径（需确保主题能解析）
-subtitle: Nu11Cat的个人网站
-description: ''
-keywords: Nu11Cat
+avatar: source/images/touxiang.jpg
+subtitle: 金鳞岂是池中物 | 一遇风云便化龙
+description: Nu11Cat的个人网站
+keywords:
 author: Nu11Cat
 language: zh-CN
 timezone: Asia/Shanghai
@@ -102,6 +102,4 @@ theme: stellar
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: https://github.com/Nu11Cat/Nu11Cat.github.io.git
-  branch: gh-pages  # 部署到专门的分支
+  type: ''
