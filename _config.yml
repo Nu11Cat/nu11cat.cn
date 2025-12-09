@@ -4,10 +4,9 @@
 
 # Site
 title: Nu11Cat
-avatar: source/images/touxiang.jpg
-subtitle: 金鳞岂是池中物 | 一遇风云便化龙
-description: Nu11Cat的个人网站
-keywords:
+subtitle: ''
+description: ''
+keywords: 技术博客
 author: Nu11Cat
 language: zh-CN
 timezone: Asia/Shanghai
@@ -97,7 +96,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: stellar
+theme: icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
