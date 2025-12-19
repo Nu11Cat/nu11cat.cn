@@ -77,7 +77,7 @@ navbar:
         标签: /tags/
         网盘: 'https://imaegoo.azurewebsites.net'
         留言板: /messages/
-        友情链接: /friends/
+        # 友情链接: /friends/
         关于: /about/
     
     # 显示在导航栏右侧的链接
