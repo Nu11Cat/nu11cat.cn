@@ -75,9 +75,10 @@ navbar:
         时间轴: /archives/
         分类: /categories/
         标签: /tags/
-        网盘: 'https://imaegoo.azurewebsites.net'
+        # 网盘: 'https://imaegoo.azurewebsites.net'
         留言板: /messages/
         # 友情链接: /friends/
+        画廊: /gallery/
         关于: /about/
     
     # 显示在导航栏右侧的链接
@@ -143,9 +144,9 @@ comment:
     # 评论插件名称
     type: twikoo
     # Twikoo环境ID
-    env_id: https://twikoo.imaegoo.com
+    env_id: https://twikoo.nu11cat.cn
     # Twikoo JS文件URL
-    js_url: /js/imaegoo/twikoo/1.6.31/twikoo.min.js
+    #js_url: /js/imaegoo/twikoo/1.6.31/twikoo.min.js
     
     # 可选：Utterances评论系统配置（GitHub Issues基于）
     # type: utterances
@@ -199,7 +200,7 @@ widgets:
         # 作者所在地
         location: HuNan, China
         # 头像图片路径或URL
-        avatar: /img/avatar.png
+        avatar: /img/baimao.jpg
         # 是否显示圆形头像
         avatar_rounded: true
         # Gravatar邮箱地址
@@ -230,15 +231,15 @@ widgets:
         # 归档日期显示格式
         format: 'YYYY 年 M 月'
     
-    # 分类小工具配置（当前未启用）
-    #-
-    #    position: left
-    #    type: categories
-    
     # 标签小工具配置（当前未启用）
     -
         position: left
         type: tags
+
+    # 分类小工具配置（当前未启用）
+    -
+        position: left
+        type: categories
     
     # 推荐链接小工具配置（当前未启用）
     #-
@@ -280,7 +281,7 @@ widgets:
         position: right
         type: twikoo_new
         # Twikoo环境ID
-        env_id: https://twikoo.imaegoo.com
+        env_id: https://twikoo.nu11cat.cn
 
 # 插件配置
 plugins:
@@ -347,10 +348,14 @@ plugins:
 
 # CDN提供商配置
 # https://ppoffice.github.io/hexo-theme-icarus/Configuration/Theme/speed-up-your-site-with-custom-cdn/
+#providers:
+#    # JavaScript和样式表的CDN提供商名称或URL模板
+#    cdn: host
+#    # 网络字体的CDN提供商名称或URL模板
+#    fontcdn: host
+#    # FontAwesome图标字体的CDN提供商名称或URL
+#    iconcdn: host
 providers:
-    # JavaScript和样式表的CDN提供商名称或URL模板
-    cdn: host
-    # 网络字体的CDN提供商名称或URL模板
-    fontcdn: host
-    # FontAwesome图标字体的CDN提供商名称或URL
-    iconcdn: host
+  cdn: jsdelivr
+  fontcdn: loli
+  iconcdn: fontawesome
