@@ -2,6 +2,8 @@
 
 ### Recommend
 
+[优质免费网站推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/)
+
 ### Tech
 
 #### Java
