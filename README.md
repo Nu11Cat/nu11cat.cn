@@ -12,6 +12,8 @@
 
 [JavaSE](https://nu11cat.cn/2025/12/30/Java/JavaSE/)
 
+[Java集合](https://nu11cat.cn/2025/12/30/Java/Java%E9%9B%86%E5%90%88/)
+
 #### Spring与框架
 
 #### 中间件
