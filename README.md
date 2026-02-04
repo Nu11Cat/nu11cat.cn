@@ -10,6 +10,8 @@
 
 #### Java
 
+[JavaSE](https://nu11cat.cn/2025/12/30/Java/JavaSE/)
+
 #### Spring与框架
 
 #### 中间件
