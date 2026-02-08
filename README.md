@@ -50,11 +50,9 @@
 
 #### 数据库
 
-[]()
+[MySQL](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/)
 
-[]()
-
-[]()
+[Redis](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/)
 
 #### 数据结构与算法
 
