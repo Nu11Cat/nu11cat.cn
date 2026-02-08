@@ -44,11 +44,9 @@
 
 #### 操作系统与Linux
 
-[]()
+[操作系统基础](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/)
 
-[]()
-
-[]()
+[Linux常用命令](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/)
 
 #### 数据库
 
