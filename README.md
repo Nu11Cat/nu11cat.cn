@@ -94,6 +94,8 @@
 
 [使用jmeter做简单的压力测试](https://nu11cat.cn/2025/12/30/教程/教程3/)
 
+[搭建自己的文档网站：VuePress+ThemeHope+Github Pages保姆级指南](https://nu11cat.cn/2025/12/30/教程/教程4/)
+
 ### 问题解决
 
 ### 面试实习日志
