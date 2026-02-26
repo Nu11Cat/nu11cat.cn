@@ -90,7 +90,7 @@
 
 [Markdown语法](https://nu11cat.cn/2025/12/30/教程/教程1/)
 
-
+[Hexo-theme-Icarus](https://nu11cat.cn/2025/12/30/教程/教程2/)
 
 ### 问题解决
 
