@@ -92,6 +92,8 @@
 
 [Hexo-theme-Icarus](https://nu11cat.cn/2025/12/30/教程/教程2/)
 
+[使用jmeter做简单的压力测试](https://nu11cat.cn/2025/12/30/教程/教程3/)
+
 ### 问题解决
 
 ### 面试实习日志
