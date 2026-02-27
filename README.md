@@ -100,4 +100,6 @@
 
 [Spring Boot3.0整合RocketMQ不兼容的问题](https://nu11cat.cn/2025/12/30/问题解决/问题解决1/)
 
+[使用Lombok时maven install 找不到符号的问题](https://nu11cat.cn/2025/12/30/问题解决/问题解决2/)
+
 ### 面试实习日志
