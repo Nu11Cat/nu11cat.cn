@@ -8,7 +8,7 @@
 
 [什么是 MCP：让模型连接工具与数据的标准协议](http://localhost:4000/2026/02/28/AI编程与应用/什么是MCP/)
 
-[什么是Skills]()
+[什么是 Skills：让 AI 助手可扩展的能力系统](http://localhost:4000/2026/02/28/AI编程与应用/什么是Skills/)
 
 ### Recommend
 
