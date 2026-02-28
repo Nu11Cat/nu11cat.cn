@@ -6,9 +6,9 @@
 
 [什么是AI Agent](http://localhost:4000/2026/02/27/AI编程与应用/什么是AI Agent/)
 
-什么是MCP
+[什么是MCP]()
 
-什么是Skills
+[什么是Skills]()
 
 ### Recommend
 
