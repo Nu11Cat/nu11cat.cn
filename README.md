@@ -30,7 +30,7 @@
 
 [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
 
-[Java集合-LinkedList源码解析](
+[Java集合-LinkedList源码解析]()
 
 [3.HashMap]()
 
