@@ -6,6 +6,10 @@
 
 [什么是AI Agent](http://localhost:4000/2026/02/27/AI编程与应用/什么是AI Agent/)
 
+什么是MCP
+
+什么是Skills
+
 ### Recommend
 
 [优质免费网站推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/)
@@ -23,6 +27,12 @@
 [Java虚拟机(JVM)](https://nu11cat.cn/2025/12/30/Java/Java%E8%99%9A%E6%8B%9F%E6%9C%BA(JVM)/)
 
 [Java并发编程](https://nu11cat.cn/2025/12/30/Java/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/)
+
+[Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
+
+[Java集合-LinkedList源码解析](
+
+[3.HashMap]()
 
 #### Spring与框架
 
