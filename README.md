@@ -6,7 +6,7 @@
 
 [什么是AI Agent](http://localhost:4000/2026/02/27/AI编程与应用/什么是AI Agent/)
 
-[什么是MCP]()
+[什么是 MCP：让模型连接工具与数据的标准协议](http://localhost:4000/2026/02/28/AI编程与应用/什么是MCP/)
 
 [什么是Skills]()
 
@@ -32,7 +32,7 @@
 
 [Java集合-LinkedList源码解析]()
 
-[3.HashMap]()
+[Java集合-HashMap源码解析]()
 
 #### Spring与框架
 
