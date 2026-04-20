@@ -1,125 +1,155 @@
-网站域名：https://nu11cat.cn/
+# Nu11Cat 博客导航
 
-### AI编程与应用
+> 在线站点：<https://nu11cat.cn/>
 
-[OpenClaw入门](http://localhost:4000/2026/02/27/AI编程与应用/OpenClaw入门/)
+本页用于快速浏览站点内容分类，并跳转到对应文章（线上地址）。
 
-[什么是AI Agent](http://localhost:4000/2026/02/27/AI编程与应用/什么是AI Agent/)
+## 快速跳转
 
-[什么是 MCP：让模型连接工具与数据的标准协议](http://localhost:4000/2026/02/28/AI编程与应用/什么是MCP/)
+- [最近更新](#nav-recent)
+- [AI 编程与应用](#nav-ai)
+- [推荐](#nav-recommend)
+- [技术 Tech](#nav-tech)
+- [教程](#nav-tutorial)
+- [问题解决](#nav-fix)
+- [面试实习日志](#nav-intern)
+- [本地预览说明](#nav-local)
 
-[什么是 Skills：让 AI 助手可扩展的能力系统](http://localhost:4000/2026/02/28/AI编程与应用/什么是Skills/)
+<a id="nav-recent"></a>
 
-[什么是 AI 的幻觉：为什么模型会“看起来很对但其实错了”](http://localhost:4000/2026/04/17/AI编程与应用/什么是AI的幻觉/)
+## 最近更新
 
-### Recommend
+- 2026-04-17 [什么是 AI 的幻觉：为什么模型会「看起来很对但其实错了」](https://nu11cat.cn/2026/04/17/AI编程与应用/什么是AI的幻觉/)
+- 2026-02-28 [什么是 MCP：让模型连接工具与数据的标准协议](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是MCP/)
+- 2026-02-28 [什么是 Skills：让 AI 助手可扩展的能力系统](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是Skills/)
+- 2026-02-27 [什么是 AI Agent](https://nu11cat.cn/2026/02/27/AI编程与应用/什么是AI%20Agent/)
+- 2026-02-27 [OpenClaw 入门](https://nu11cat.cn/2026/02/27/AI编程与应用/OpenClaw入门/)
 
-[优质免费网站推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/)
+<a id="nav-ai"></a>
 
-[优质免费工具推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/)
+## AI 编程与应用
 
-### Tech
+AI、Agent、工具协议与工程实践相关文章。
 
-#### Java
+- [OpenClaw 入门](https://nu11cat.cn/2026/02/27/AI编程与应用/OpenClaw入门/)
+- [什么是 AI Agent](https://nu11cat.cn/2026/02/27/AI编程与应用/什么是AI%20Agent/)
+- [什么是 MCP：让模型连接工具与数据的标准协议](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是MCP/)
+- [什么是 Skills：让 AI 助手可扩展的能力系统](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是Skills/)
+- [什么是 AI 的幻觉：为什么模型会「看起来很对但其实错了」](https://nu11cat.cn/2026/04/17/AI编程与应用/什么是AI的幻觉/)
 
-[JavaSE](https://nu11cat.cn/2025/12/30/Java/JavaSE/)
+<a id="nav-recommend"></a>
 
-[Java集合](https://nu11cat.cn/2025/12/30/Java/Java%E9%9B%86%E5%90%88/)
+## 推荐
 
-[Java虚拟机(JVM)](https://nu11cat.cn/2025/12/30/Java/Java%E8%99%9A%E6%8B%9F%E6%9C%BA(JVM)/)
+- [优质免费网站推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E7%BD%91%E7%AB%99%E6%8E%A8%E8%8D%90/)
+- [优质免费工具推荐](https://nu11cat.cn/2025/12/30/%E6%8E%A8%E8%8D%90/%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90/)
 
-[Java并发编程](https://nu11cat.cn/2025/12/30/Java/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/)
+<a id="nav-tech"></a>
 
-[Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
+## 技术 Tech
 
-[Java集合-LinkedList源码解析]()
+Java、框架、中间件、算法与网络等主题。点击下方标题展开完整索引。
 
-[Java集合-HashMap源码解析]()
+<details>
+<summary><strong>展开 / 收起「技术 Tech」全部链接</strong></summary>
 
-#### Spring与框架
+### Java
 
-[Spring](https://nu11cat.cn/2025/12/30/Spring%E4%B8%8E%E6%A1%86%E6%9E%B6/Spring/)
+- [JavaSE](https://nu11cat.cn/2025/12/30/Java/JavaSE/)
+- [Java集合](https://nu11cat.cn/2025/12/30/Java/Java%E9%9B%86%E5%90%88/)
+- [Java虚拟机(JVM)](https://nu11cat.cn/2025/12/30/Java/Java%E8%99%9A%E6%8B%9F%E6%9C%BA(JVM)/)
+- [Java并发编程](https://nu11cat.cn/2025/12/30/Java/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/)
+- [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
+- [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
+- [Java集合-HashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/3.HashMap/)
 
-[Mybatis](https://nu11cat.cn/2025/12/30/Spring%E4%B8%8E%E6%A1%86%E6%9E%B6/Mybatis/)
+### Spring 与框架
 
-#### 中间件
+- [Spring](https://nu11cat.cn/2025/12/30/Spring%E4%B8%8E%E6%A1%86%E6%9E%B6/Spring/)
+- [Mybatis](https://nu11cat.cn/2025/12/30/Spring%E4%B8%8E%E6%A1%86%E6%9E%B6/Mybatis/)
 
-[消息队列](https://nu11cat.cn/2025/12/30/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/)
+### 中间件
 
-#### 分布式与微服务
+- [消息队列](https://nu11cat.cn/2025/12/30/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/)
 
-[微服务](https://nu11cat.cn/2025/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1/)
+### 分布式与微服务
 
-[分布式](https://nu11cat.cn/2025/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F/)
+- [微服务](https://nu11cat.cn/2025/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1/)
+- [分布式](https://nu11cat.cn/2025/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F/)
 
-#### 手写实现
+### 手写实现
 
-[手写实现](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/)
+- [手写实现](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/)
+- [实现 LRU 缓存](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B01/)
+- [实现 Trie（前缀树）](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B02/)
 
-[实现LRU缓存](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B01/)
+### 操作系统与 Linux
 
-[实现Trie (前缀树)](https://nu11cat.cn/2025/12/30/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B0/%E6%89%8B%E5%86%99%E5%AE%9E%E7%8E%B02/)
+- [操作系统基础](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/)
+- [Linux 常用命令](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/)
 
-#### 操作系统与Linux
+### 数据库
 
-[操作系统基础](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80/)
+- [MySQL](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/)
+- [Redis](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/)
 
-[Linux常用命令](https://nu11cat.cn/2025/12/30/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8ELinux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/)
+### 数据结构与算法
 
-#### 数据库
+- [常见的数据结构](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/)
+- [常见的算法](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/)
+- [拓扑排序的两种实现思路/方式详解](https://nu11cat.cn/2026/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/)
 
-[MySQL](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/)
+### 源码解析
 
-[Redis](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/)
+- [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
+- [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
 
-#### 数据结构与算法
+### 计算机网络
 
-[常见的数据结构](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/)
+- [常见的应用层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(1)/)
+- [常见的传输层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(2)/)
+- [常见的网络层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(3)/)
+- [常见的网络接口层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(4)/)
+- [常见的网络攻击](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/)
+- [为什么 TCP 设计中要设计 ACK 不重传？](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%BA%E4%BB%80%E4%B9%88TCP%E8%AE%BE%E8%AE%A1%E4%B8%AD%E8%A6%81%E8%AE%BE%E8%AE%A1ACK%E4%B8%8D%E9%87%8D%E4%BC%A0/)
 
-[常见的算法](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/)
+### 设计模式与系统设计
 
-[拓扑排序的两种实现思路/方式详解](https://nu11cat.cn/2026/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/)
+- [设计模式](https://nu11cat.cn/2025/12/30/设计模式/设计模式/)
 
-#### 源码解析
+</details>
 
-[Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
+<a id="nav-tutorial"></a>
 
-[Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
+## 教程
 
-#### 计算机网络
+- [Markdown 语法](https://nu11cat.cn/2025/12/30/教程/教程1/)
+- [Hexo-theme-Icarus](https://nu11cat.cn/2025/12/30/教程/教程2/)
+- [使用 jmeter 做简单的压力测试](https://nu11cat.cn/2025/12/30/教程/教程3/)
+- [搭建自己的文档网站：VuePress + ThemeHope + Github Pages 保姆级指南](https://nu11cat.cn/2025/12/30/教程/教程4/)
 
-[常见的应用层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(1)/)
+<a id="nav-fix"></a>
 
-[常见的传输层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(2)/)
+## 问题解决
 
-[常见的网络层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(3)/)
+- [Spring Boot3.0 整合 RocketMQ 不兼容的问题](https://nu11cat.cn/2025/12/30/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B31/)
+- [使用 Lombok 时 maven install 找不到符号的问题](https://nu11cat.cn/2025/12/30/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B32/)
 
-[常见的网络接口层网络协议](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE(4)/)
+<a id="nav-intern"></a>
 
-[常见的网络攻击](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB/)
+## 面试实习日志
 
-[为什么TCP设计中要设计ACK不重传？](https://nu11cat.cn/2025/12/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%B8%BA%E4%BB%80%E4%B9%88TCP%E8%AE%BE%E8%AE%A1%E4%B8%AD%E8%A6%81%E8%AE%BE%E8%AE%A1ACK%E4%B8%8D%E9%87%8D%E4%BC%A0/)
+面经与实习期间记录。
 
-#### 设计模式与系统设计
+- [2026-01-15 面经](https://nu11cat.cn/2026/02/01/面试实习日志/面经260115/)
+- 
 
-[设计模式](https://nu11cat.cn/2025/12/30/设计模式/设计模式/)
+<a id="nav-local"></a>
 
-### 教程
+## 本地预览说明
 
-[Markdown语法](https://nu11cat.cn/2025/12/30/教程/教程1/)
+仓库根目录执行 `npm install` 与 `npm run server` 后，本地一般为 <http://localhost:4000/>。README 内文章链接统一指向线上域名，便于在 GitHub 直接点开阅读。
 
-[Hexo-theme-Icarus](https://nu11cat.cn/2025/12/30/教程/教程2/)
+---
 
-[使用jmeter做简单的压力测试](https://nu11cat.cn/2025/12/30/教程/教程3/)
-
-[搭建自己的文档网站：VuePress+ThemeHope+Github Pages保姆级指南](https://nu11cat.cn/2025/12/30/教程/教程4/)
-
-### 问题解决
-
-[Spring Boot3.0整合RocketMQ不兼容的问题](https://nu11cat.cn/2025/12/30/问题解决/问题解决1/)
-
-[使用Lombok时maven install 找不到符号的问题](https://nu11cat.cn/2025/12/30/问题解决/问题解决2/)
-
-### 面试实习日志
-
-[2026-01-15 面经](https://nu11cat.cn/2026/02/01/面试实习日志/面经260115/)
+维护提示：发布新文章后，在 **最近更新** 顶部追加一行即可；全文链接保持 `https://nu11cat.cn/` 前缀。
