@@ -19,6 +19,7 @@
 
 ## 最近更新
 
+- 2026-04-20 [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
 - 2026-04-17 [什么是 AI 的幻觉：为什么模型会「看起来很对但其实错了」](https://nu11cat.cn/2026/04/17/AI编程与应用/什么是AI的幻觉/)
 - 2026-02-28 [什么是 MCP：让模型连接工具与数据的标准协议](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是MCP/)
 - 2026-02-28 [什么是 Skills：让 AI 助手可扩展的能力系统](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是Skills/)
@@ -62,6 +63,7 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 - [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
 - [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
 - [Java集合-HashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/3.HashMap/)
+- [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
 
 ### Spring 与框架
 
@@ -103,6 +105,7 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 
 - [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
 - [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
+- [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
 
 ### 计算机网络
 
