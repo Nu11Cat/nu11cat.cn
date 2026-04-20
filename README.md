@@ -19,6 +19,11 @@
 
 ## 最近更新
 
+- 2026-04-20 [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
+- 2026-04-20 [Java集合-ArrayDeque源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/8.ArrayDeque/)
+- 2026-04-20 [Java集合-PriorityQueue源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/7.PriorityQueue/)
+- 2026-04-20 [Java集合-TreeMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/6.TreeMap/)
+- 2026-04-20 [Java集合-HashSet与LinkedHashSet源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/5.HashSet-LinkedHashSet/)
 - 2026-04-20 [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
 - 2026-04-17 [什么是 AI 的幻觉：为什么模型会「看起来很对但其实错了」](https://nu11cat.cn/2026/04/17/AI编程与应用/什么是AI的幻觉/)
 - 2026-02-28 [什么是 MCP：让模型连接工具与数据的标准协议](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是MCP/)
@@ -64,6 +69,11 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 - [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
 - [Java集合-HashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/3.HashMap/)
 - [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
+- [Java集合-HashSet与LinkedHashSet源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/5.HashSet-LinkedHashSet/)
+- [Java集合-TreeMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/6.TreeMap/)
+- [Java集合-PriorityQueue源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/7.PriorityQueue/)
+- [Java集合-ArrayDeque源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/8.ArrayDeque/)
+- [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
 
 ### Spring 与框架
 
@@ -105,7 +115,13 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 
 - [Java集合-ArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/1.ArrayList/)
 - [Java集合-LinkedList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/2.LinkedList/)
+- [Java集合-HashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/3.HashMap/)
 - [Java集合-LinkedHashMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/4.LinkedHashMap/)
+- [Java集合-HashSet与LinkedHashSet源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/5.HashSet-LinkedHashSet/)
+- [Java集合-TreeMap源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/6.TreeMap/)
+- [Java集合-PriorityQueue源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/7.PriorityQueue/)
+- [Java集合-ArrayDeque源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/8.ArrayDeque/)
+- [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
 
 ### 计算机网络
 
