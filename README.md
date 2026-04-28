@@ -19,6 +19,7 @@
 
 ## 最近更新
 
+- 2026-04-21 [Java并发-JUC-ThreadPoolExecutor源码解析（execute到runWorker主链路）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/12.ThreadPoolExecutor/)
 - 2026-04-21 [Java并发-JUC-ReentrantLock与AQS独占模式源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/11.ReentrantLock-AQS/)
 - 2026-04-20 [Java并发集合-CopyOnWriteArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/10.CopyOnWriteArrayList/)
 - 2026-04-20 [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
@@ -78,6 +79,7 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 - [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
 - [Java并发集合-CopyOnWriteArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/10.CopyOnWriteArrayList/)
 - [Java并发-JUC-ReentrantLock与AQS独占模式源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/11.ReentrantLock-AQS/)
+- [Java并发-JUC-ThreadPoolExecutor源码解析（execute到runWorker主链路）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/12.ThreadPoolExecutor/)
 
 ### Spring 与框架
 
@@ -128,6 +130,7 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 - [Java并发集合-ConcurrentHashMap源码解析（JDK8）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/9.ConcurrentHashMap/)
 - [Java并发集合-CopyOnWriteArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/10.CopyOnWriteArrayList/)
 - [Java并发-JUC-ReentrantLock与AQS独占模式源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/11.ReentrantLock-AQS/)
+- [Java并发-JUC-ThreadPoolExecutor源码解析（execute到runWorker主链路）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/12.ThreadPoolExecutor/)
 
 ### 计算机网络
 
