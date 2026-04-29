@@ -174,7 +174,7 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 
 <a id="nav-local"></a>
 
-## 本地预览说明
+## 本地预览说明.
 
 仓库根目录执行 `npm install` 与 `npm run server` 后，本地一般为 <http://localhost:4000/>。README 内文章链接统一指向线上域名，便于在 GitHub 直接点开阅读。
 
