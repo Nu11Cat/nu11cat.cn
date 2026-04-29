@@ -19,6 +19,8 @@
 
 ## 最近更新
 
+- 2026-04-29 [MongoDB-架构与工程实践](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/)
+- 2026-04-29 [MongoDB-基础与CRUD](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E5%9F%BA%E7%A1%80%E4%B8%8ECRUD/)
 - 2026-04-21 [Java并发-JUC-ThreadPoolExecutor源码解析（execute到runWorker主链路）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/12.ThreadPoolExecutor/)
 - 2026-04-21 [Java并发-JUC-ReentrantLock与AQS独占模式源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/11.ReentrantLock-AQS/)
 - 2026-04-20 [Java并发集合-CopyOnWriteArrayList源码解析](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/10.CopyOnWriteArrayList/)
@@ -110,6 +112,8 @@ Java、框架、中间件、算法与网络等主题。点击下方标题展开�
 
 - [MySQL](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/)
 - [Redis](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/)
+- [MongoDB-基础与CRUD](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E5%9F%BA%E7%A1%80%E4%B8%8ECRUD/)
+- [MongoDB-架构与工程实践](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/)
 
 ### 数据结构与算法
 
