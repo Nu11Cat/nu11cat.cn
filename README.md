@@ -19,6 +19,7 @@
 
 ## 最近更新
 
+- 2026-04-30 [什么是 OpenSpec：让需求到代码有统一交付基线](https://nu11cat.cn/2026/04/30/AI编程与应用/什么是OpenSpec/)
 - 2026-04-29 [MongoDB-架构与工程实践](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/)
 - 2026-04-29 [MongoDB-基础与CRUD](https://nu11cat.cn/2025/12/30/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB-%E5%9F%BA%E7%A1%80%E4%B8%8ECRUD/)
 - 2026-04-21 [Java并发-JUC-ThreadPoolExecutor源码解析（execute到runWorker主链路）](https://nu11cat.cn/2025/12/30/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/12.ThreadPoolExecutor/)
@@ -42,6 +43,7 @@
 
 AI、Agent、工具协议与工程实践相关文章。
 
+- [什么是 OpenSpec：让需求到代码有统一交付基线](https://nu11cat.cn/2026/04/30/AI编程与应用/什么是OpenSpec/)
 - [OpenClaw 入门](https://nu11cat.cn/2026/02/27/AI编程与应用/OpenClaw入门/)
 - [什么是 AI Agent](https://nu11cat.cn/2026/02/27/AI编程与应用/什么是AI%20Agent/)
 - [什么是 MCP：让模型连接工具与数据的标准协议](https://nu11cat.cn/2026/02/28/AI编程与应用/什么是MCP/)
